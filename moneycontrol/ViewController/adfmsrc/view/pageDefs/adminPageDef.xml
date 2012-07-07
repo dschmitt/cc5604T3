@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.60.81" id="adminPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="SessionEJBLocal" id="SessionEJBLocalIterator"
+              ChangeEventPolicy="ppr"/>
+    <accessorIterator MasterBinding="SessionEJBLocalIterator" Binds="usuarioFindAll" RangeSize="25"
+                      DataControl="SessionEJBLocal" BeanClass="model.Usuario" id="usuarioFindAllIterator"
+                      ChangeEventPolicy="ppr"/>
+    <searchRegion Binds="usuarioFindAllIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="usuarioFindAllQuery"/>
+    <page path="oracle.ui.pattern.dynamicShell.model.dynamicTabShellDefinition" id="ptb1" Refresh="ifNeeded"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="usuarioFindAllIterator" id="nombreCompleto">
+      <AttrNames>
+        <Item Value="nombreCompleto"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="usuarioFindAllIterator" id="correo">
+      <AttrNames>
+        <Item Value="correo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="usuarioFindAllIterator" id="contraseña">
+      <AttrNames>
+        <Item Value="contraseña"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="usuarioFindAllIterator" id="nombre">
+      <AttrNames>
+        <Item Value="nombre"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="usuarioFindAllIterator" id="admin">
+      <AttrNames>
+        <Item Value="admin"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="usuarioFindAllIterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="usuarioFindAllIterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="usuarioFindAllIterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="usuarioFindAllIterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <tree IterBinding="usuarioFindAllIterator" id="usuarioFindAll1">
+      <nodeDefinition DefName="model.Usuario" Name="usuarioFindAll10">
+        <AttrNames>
+          <Item Value="nombre"/>
+          <Item Value="nombreCompleto"/>
+          <Item Value="correo"/>
+          <Item Value="contraseña"/>
+          <Item Value="admin"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="usuarioFindAllIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+  </bindings>
+</pageDefinition>

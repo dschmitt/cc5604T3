@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:h="http://java.sun.com/jsf/html">
+    <af:document title="Registro" id="d1">
+        <h:outputStylesheet library="css/" name="simpleblue.css" id="os1"/>
+        <af:messages id="m1"/>
+        <div id="container">
+            <div id="topbox">
+                <div id="tbcenter">
+                    <af:form id="f1">
+                        <af:panelFormLayout id="pfl1">
+                            <af:inputText label="Nombre" required="#{bindings.nombre.hints.mandatory}"
+                                          columns="#{bindings.nombre.hints.displayWidth}"
+                                          maximumLength="#{bindings.nombre.hints.precision}"
+                                          shortDesc="#{bindings.nombre.hints.tooltip}" id="it1"
+                                          binding="#{registerBean.nombre}">
+                                <f:validator binding="#{bindings.nombre.validator}"/>
+                            </af:inputText>
+                            <af:inputText label="Nombre Completo" required="#{bindings.nombreCompleto.hints.mandatory}"
+                                          columns="#{bindings.nombreCompleto.hints.displayWidth}"
+                                          maximumLength="#{bindings.nombreCompleto.hints.precision}"
+                                          shortDesc="#{bindings.nombreCompleto.hints.tooltip}" id="it2"
+                                          binding="#{registerBean.nombreComp}">
+                                <f:validator binding="#{bindings.nombreCompleto.validator}"/>
+                            </af:inputText>
+                            <af:inputText label="Correo" required="#{bindings.correo.hints.mandatory}"
+                                          columns="#{bindings.correo.hints.displayWidth}"
+                                          maximumLength="#{bindings.correo.hints.precision}"
+                                          shortDesc="#{bindings.correo.hints.tooltip}" id="it3"
+                                          binding="#{registerBean.correo}">
+                                <f:validator binding="#{bindings.correo.validator}"/>
+                            </af:inputText>
+                            <af:inputText label="Contraseña" required="#{bindings['contraseña'].hints.mandatory}"
+                                          columns="#{bindings['contraseña'].hints.displayWidth}"
+                                          maximumLength="#{bindings['contraseña'].hints.precision}"
+                                          shortDesc="#{bindings['contraseña'].hints.tooltip}" id="it4" secret="true"
+                                          binding="#{registerBean.clave}">
+                                <f:validator binding="#{bindings['contraseña'].validator}"/>
+                            </af:inputText>
+                            <af:commandButton text="Registrar" id="cb1" action="#{registerBean.registrar}"/>
+                            <af:commandButton text="Cancelar" id="cb2" action="success"/>
+                        </af:panelFormLayout>
+                    </af:form>
+                </div>
+            </div>
+        </div>
+    </af:document>
+</f:view>

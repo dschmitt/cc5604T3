@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="es"
+    xml:lang="es"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+    
+    <h:head>
+        <link rel="stylesheet" type="text/css" href="../resources/css/simpleblue.css"/>
+        <title><ui:insert name="title">Some title</ui:insert></title>        
+    </h:head>
+    
+    <h:body>
+        <ui:include src="header.xhtml"/>
+        <ui:insert name="body"/>
+        <ui:include src="footer.xhtml"/>
+    </h:body>
+
+</html>

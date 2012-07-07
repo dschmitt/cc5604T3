@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.60.81" id="registerPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="SessionEJBLocal" id="SessionEJBLocalIterator"/>
+    <accessorIterator MasterBinding="SessionEJBLocalIterator" Binds="usuarioFindAll" RangeSize="25"
+                      DataControl="SessionEJBLocal" BeanClass="model.Usuario" id="usuarioFindAllIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="usuarioFindAllIterator" id="nombre">
+      <AttrNames>
+        <Item Value="nombre"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="usuarioFindAllIterator" id="nombreCompleto">
+      <AttrNames>
+        <Item Value="nombreCompleto"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="usuarioFindAllIterator" id="correo">
+      <AttrNames>
+        <Item Value="correo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="usuarioFindAllIterator" id="contraseña">
+      <AttrNames>
+        <Item Value="contraseña"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

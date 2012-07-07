@@ -1,0 +1,557 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<table xmlns="http://xmlns.oracle.com/jdeveloper/1112/offlinedb">
+  <ID class="oracle.javatools.db.IdentifierBasedID">
+    <identifier class="java.lang.String">0f0113bb-decb-4579-9ba1-38ad4a350b5c</identifier>
+  </ID>
+  <name>TRANSACCION_INTERNA</name>
+  <columns>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">93a430f1-4cfc-40a8-985d-5f3ac102db2e</identifier>
+      </ID>
+      <name>TRANSACCION_IDTRANSACCION</name>
+      <dataTypeUsage>
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">3e033f2d-1ac4-4fc3-9256-0d40fc03b1a4</identifier>
+        </ID>
+        <attributeValues>
+          <entry>
+            <key>scale</key>
+            <value class="java.lang.Long">0</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.OracleDatabaseImpl</providerClass>
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>TRANSACCION_IDTRANSACCION</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>TRANSACCION_INTERNA</name>
+                  <identifier class="java.math.BigDecimal">20369</identifier>
+                  <schemaName>CHUCHU</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <type>COLUMN</type>
+              </parent>
+              <type>DataTypeUsage</type>
+            </value>
+          </entry>
+        </properties>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>TRANSACCION_IDTRANSACCION</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>TRANSACCION_INTERNA</name>
+              <identifier class="java.math.BigDecimal">20369</identifier>
+              <schemaName>CHUCHU</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">25b57007-98b0-4ed1-9518-c178839924e7</identifier>
+      </ID>
+      <name>CUENTA_IDCUENTA</name>
+      <dataTypeUsage>
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">1ae0078f-84f7-4b57-a2f4-b3987e05b010</identifier>
+        </ID>
+        <attributeValues>
+          <entry>
+            <key>scale</key>
+            <value class="java.lang.Long">0</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.OracleDatabaseImpl</providerClass>
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>CUENTA_IDCUENTA</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>TRANSACCION_INTERNA</name>
+                  <identifier class="java.math.BigDecimal">20369</identifier>
+                  <schemaName>CHUCHU</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <type>COLUMN</type>
+              </parent>
+              <type>DataTypeUsage</type>
+            </value>
+          </entry>
+        </properties>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>CUENTA_IDCUENTA</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>TRANSACCION_INTERNA</name>
+              <identifier class="java.math.BigDecimal">20369</identifier>
+              <schemaName>CHUCHU</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+  </columns>
+  <constraints>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">0fb8cb8c-5628-4e09-9f4b-3ae294fb5bb1</identifier>
+      </ID>
+      <name>FK_CUENTA</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>CUENTA_IDCUENTA</name>
+          <identifier class="java.lang.String">25b57007-98b0-4ed1-9518-c178839924e7</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>TRANSACCION_INTERNA</name>
+            <identifier class="java.lang.String">0f0113bb-decb-4579-9ba1-38ad4a350b5c</identifier>
+            <schemaName>CHUCHU</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>CHUCHU</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <deleteMode>0</deleteMode>
+      <enabled>true</enabled>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>FK_CUENTA</name>
+            <childObjectNames>
+              <childObjectName>CUENTA_IDCUENTA</childObjectName>
+            </childObjectNames>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>TRANSACCION_INTERNA</name>
+              <identifier class="java.math.BigDecimal">20369</identifier>
+              <schemaName>CHUCHU</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <subType>FKConstraint</subType>
+            <type>CONSTRAINT</type>
+          </value>
+        </entry>
+      </properties>
+      <referenceID class="oracle.javatools.db.IdentifierBasedID">
+        <name>CUENTA_PK</name>
+        <identifier class="java.lang.String">1eab2e0a-b64e-401a-a28d-534c137da302</identifier>
+        <parent class="oracle.javatools.db.IdentifierBasedID">
+          <name>CUENTA</name>
+          <identifier class="java.lang.String">cc7ded74-b6fe-4daa-b42c-9b277ceb9fcb</identifier>
+          <schemaName>CHUCHU</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>CHUCHU</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">b7085889-d1f5-439f-b0e2-c0442b34b297</identifier>
+      </ID>
+      <name>FK_TRANSACCION</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>TRANSACCION_IDTRANSACCION</name>
+          <identifier class="java.lang.String">93a430f1-4cfc-40a8-985d-5f3ac102db2e</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>TRANSACCION_INTERNA</name>
+            <identifier class="java.lang.String">0f0113bb-decb-4579-9ba1-38ad4a350b5c</identifier>
+            <schemaName>CHUCHU</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>CHUCHU</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <deleteMode>0</deleteMode>
+      <enabled>true</enabled>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>FK_TRANSACCION</name>
+            <childObjectNames>
+              <childObjectName>TRANSACCION_IDTRANSACCION</childObjectName>
+            </childObjectNames>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>TRANSACCION_INTERNA</name>
+              <identifier class="java.math.BigDecimal">20369</identifier>
+              <schemaName>CHUCHU</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <subType>FKConstraint</subType>
+            <type>CONSTRAINT</type>
+          </value>
+        </entry>
+      </properties>
+      <referenceID class="oracle.javatools.db.IdentifierBasedID">
+        <name>TRANSACCION_PK</name>
+        <identifier class="java.lang.String">7c0d0765-92b9-492b-902c-a78e928b5319</identifier>
+        <parent class="oracle.javatools.db.IdentifierBasedID">
+          <name>TRANSACCION</name>
+          <identifier class="java.lang.String">19dfb021-9f4c-4d2d-9d58-fe6ef309496e</identifier>
+          <schemaName>CHUCHU</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>CHUCHU</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.PKConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">56ce6ad2-788f-4adc-b119-1e293db73e24</identifier>
+      </ID>
+      <name>TRANSACCION_INTERNA_PK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>TRANSACCION_IDTRANSACCION</name>
+          <identifier class="java.lang.String">93a430f1-4cfc-40a8-985d-5f3ac102db2e</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>TRANSACCION_INTERNA</name>
+            <identifier class="java.lang.String">0f0113bb-decb-4579-9ba1-38ad4a350b5c</identifier>
+            <schemaName>CHUCHU</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>CHUCHU</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>CUENTA_IDCUENTA</name>
+          <identifier class="java.lang.String">25b57007-98b0-4ed1-9518-c178839924e7</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>TRANSACCION_INTERNA</name>
+            <identifier class="java.lang.String">0f0113bb-decb-4579-9ba1-38ad4a350b5c</identifier>
+            <schemaName>CHUCHU</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>CHUCHU</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <indexID class="oracle.javatools.db.IdentifierBasedID">
+        <name>TRANSACCION_INTERNA_PK</name>
+        <identifier class="java.lang.String">3519ca0d-ca72-440a-825e-f048d017239b</identifier>
+        <parent class="oracle.javatools.db.IdentifierBasedID">
+          <name>TRANSACCION_INTERNA</name>
+          <identifier class="java.lang.String">0f0113bb-decb-4579-9ba1-38ad4a350b5c</identifier>
+          <schemaName>CHUCHU</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>CHUCHU</schemaName>
+        <type>INDEX</type>
+      </indexID>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>TRANSACCION_INTERNA_PK</name>
+            <childObjectNames>
+              <childObjectName>TRANSACCION_IDTRANSACCION</childObjectName>
+              <childObjectName>CUENTA_IDCUENTA</childObjectName>
+            </childObjectNames>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>TRANSACCION_INTERNA</name>
+              <identifier class="java.math.BigDecimal">20369</identifier>
+              <schemaName>CHUCHU</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <subType>PKConstraint</subType>
+            <type>CONSTRAINT</type>
+          </value>
+        </entry>
+      </properties>
+    </constraint>
+  </constraints>
+  <indexes>
+    <indexe>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">3519ca0d-ca72-440a-825e-f048d017239b</identifier>
+      </ID>
+      <name>TRANSACCION_INTERNA_PK</name>
+      <columnExpressions>
+        <columnExpression>
+          <ID class="oracle.javatools.db.IdentifierBasedID">
+            <identifier class="java.lang.String">523063d6-29e4-4c2e-afe2-8ccae16c5e28</identifier>
+          </ID>
+          <expression class="oracle.javatools.db.sql.ColumnUsage">
+            <ID class="oracle.javatools.db.IdentifierBasedID">
+              <identifier class="java.lang.String">e18bdb7d-391f-42de-ad1b-623e4e3176f0</identifier>
+            </ID>
+            <objectID class="oracle.javatools.db.IdentifierBasedID">
+              <name>TRANSACCION_IDTRANSACCION</name>
+              <identifier class="java.lang.String">93a430f1-4cfc-40a8-985d-5f3ac102db2e</identifier>
+              <parent class="oracle.javatools.db.IdentifierBasedID">
+                <name>TRANSACCION_INTERNA</name>
+                <identifier class="java.lang.String">0f0113bb-decb-4579-9ba1-38ad4a350b5c</identifier>
+                <schemaName>CHUCHU</schemaName>
+                <type>TABLE</type>
+              </parent>
+              <schemaName>CHUCHU</schemaName>
+              <type>COLUMN</type>
+            </objectID>
+            <outerJoin>false</outerJoin>
+            <properties>
+              <entry>
+                <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+                <value class="oracle.javatools.db.ReferenceID">
+                  <parent class="oracle.javatools.db.ReferenceID">
+                    <parent class="oracle.javatools.db.ReferenceID">
+                      <name>TRANSACCION_INTERNA_PK</name>
+                      <identifier class="java.math.BigDecimal">20370</identifier>
+                      <parent class="oracle.javatools.db.ReferenceID">
+                        <name>TRANSACCION_INTERNA</name>
+                        <identifier class="java.math.BigDecimal">20369</identifier>
+                        <schemaName>CHUCHU</schemaName>
+                        <type>TABLE</type>
+                      </parent>
+                      <schemaName>CHUCHU</schemaName>
+                      <type>INDEX</type>
+                    </parent>
+                    <type>IndexObject</type>
+                  </parent>
+                  <type>SQLFragment</type>
+                </value>
+              </entry>
+            </properties>
+            <qualified>true</qualified>
+          </expression>
+          <order>ASC</order>
+          <properties>
+            <entry>
+              <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+              <value class="oracle.javatools.db.ReferenceID">
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>TRANSACCION_INTERNA_PK</name>
+                  <identifier class="java.math.BigDecimal">20370</identifier>
+                  <parent class="oracle.javatools.db.ReferenceID">
+                    <name>TRANSACCION_INTERNA</name>
+                    <identifier class="java.math.BigDecimal">20369</identifier>
+                    <schemaName>CHUCHU</schemaName>
+                    <type>TABLE</type>
+                  </parent>
+                  <schemaName>CHUCHU</schemaName>
+                  <type>INDEX</type>
+                </parent>
+                <type>IndexObject</type>
+              </value>
+            </entry>
+          </properties>
+        </columnExpression>
+        <columnExpression>
+          <ID class="oracle.javatools.db.IdentifierBasedID">
+            <identifier class="java.lang.String">f2f5d7d7-59c3-431f-9ccb-4df44dedaec0</identifier>
+          </ID>
+          <expression class="oracle.javatools.db.sql.ColumnUsage">
+            <ID class="oracle.javatools.db.IdentifierBasedID">
+              <identifier class="java.lang.String">9e6bffb5-9d42-42c2-925c-b9511251986a</identifier>
+            </ID>
+            <objectID class="oracle.javatools.db.IdentifierBasedID">
+              <name>CUENTA_IDCUENTA</name>
+              <identifier class="java.lang.String">25b57007-98b0-4ed1-9518-c178839924e7</identifier>
+              <parent class="oracle.javatools.db.IdentifierBasedID">
+                <name>TRANSACCION_INTERNA</name>
+                <identifier class="java.lang.String">0f0113bb-decb-4579-9ba1-38ad4a350b5c</identifier>
+                <schemaName>CHUCHU</schemaName>
+                <type>TABLE</type>
+              </parent>
+              <schemaName>CHUCHU</schemaName>
+              <type>COLUMN</type>
+            </objectID>
+            <outerJoin>false</outerJoin>
+            <properties>
+              <entry>
+                <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+                <value class="oracle.javatools.db.ReferenceID">
+                  <parent class="oracle.javatools.db.ReferenceID">
+                    <parent class="oracle.javatools.db.ReferenceID">
+                      <name>TRANSACCION_INTERNA_PK</name>
+                      <identifier class="java.math.BigDecimal">20370</identifier>
+                      <parent class="oracle.javatools.db.ReferenceID">
+                        <name>TRANSACCION_INTERNA</name>
+                        <identifier class="java.math.BigDecimal">20369</identifier>
+                        <schemaName>CHUCHU</schemaName>
+                        <type>TABLE</type>
+                      </parent>
+                      <schemaName>CHUCHU</schemaName>
+                      <type>INDEX</type>
+                    </parent>
+                    <type>IndexObject</type>
+                  </parent>
+                  <type>SQLFragment</type>
+                </value>
+              </entry>
+            </properties>
+            <qualified>true</qualified>
+          </expression>
+          <order>ASC</order>
+          <properties>
+            <entry>
+              <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+              <value class="oracle.javatools.db.ReferenceID">
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>TRANSACCION_INTERNA_PK</name>
+                  <identifier class="java.math.BigDecimal">20370</identifier>
+                  <parent class="oracle.javatools.db.ReferenceID">
+                    <name>TRANSACCION_INTERNA</name>
+                    <identifier class="java.math.BigDecimal">20369</identifier>
+                    <schemaName>CHUCHU</schemaName>
+                    <type>TABLE</type>
+                  </parent>
+                  <schemaName>CHUCHU</schemaName>
+                  <type>INDEX</type>
+                </parent>
+                <type>IndexObject</type>
+              </value>
+            </entry>
+          </properties>
+        </columnExpression>
+      </columnExpressions>
+      <indexType>UNIQUE</indexType>
+      <parallelDegree>1</parallelDegree>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>TRANSACCION_INTERNA_PK</name>
+            <identifier class="java.math.BigDecimal">20370</identifier>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>TRANSACCION_INTERNA</name>
+              <identifier class="java.math.BigDecimal">20369</identifier>
+              <schemaName>CHUCHU</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <schemaName>CHUCHU</schemaName>
+            <type>INDEX</type>
+          </value>
+        </entry>
+        <entry>
+          <key>OracleStorageProperties</key>
+          <value class="oracle.javatools.db.ora.OracleStorageProperties">
+            <ID class="oracle.javatools.db.IdentifierBasedID">
+              <identifier class="java.lang.String">362b7f1c-b454-40a9-9d12-1fb28734a8f2</identifier>
+            </ID>
+            <bufferMode>DEFAULT</bufferMode>
+            <initialExtent>65536</initialExtent>
+            <initrans>2</initrans>
+            <logging>true</logging>
+            <maxExtent>2147483645</maxExtent>
+            <minExtent>1</minExtent>
+            <nextExtent>1048576</nextExtent>
+            <percentFree>10</percentFree>
+            <properties>
+              <entry>
+                <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+                <value class="oracle.javatools.db.ReferenceID">
+                  <parent class="oracle.javatools.db.ReferenceID">
+                    <name>TRANSACCION_INTERNA_PK</name>
+                    <identifier class="java.math.BigDecimal">20370</identifier>
+                    <parent class="oracle.javatools.db.ReferenceID">
+                      <name>TRANSACCION_INTERNA</name>
+                      <identifier class="java.math.BigDecimal">20369</identifier>
+                      <schemaName>CHUCHU</schemaName>
+                      <type>TABLE</type>
+                    </parent>
+                    <schemaName>CHUCHU</schemaName>
+                    <type>INDEX</type>
+                  </parent>
+                  <type>OracleStorageProperties</type>
+                </value>
+              </entry>
+            </properties>
+            <tablespaceID class="oracle.javatools.db.ReferenceID">
+              <name>USERS</name>
+              <type>TABLESPACE</type>
+            </tablespaceID>
+          </value>
+        </entry>
+      </properties>
+      <schema>
+        <name>CHUCHU</name>
+      </schema>
+      <systemGenerated>true</systemGenerated>
+    </indexe>
+  </indexes>
+  <properties>
+    <entry>
+      <key>OfflineDBConstants.IMPORT_SOURCE_CONNECTION</key>
+      <value class="java.lang.String">Connection1</value>
+    </entry>
+    <entry>
+      <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+      <value class="oracle.javatools.db.ReferenceID">
+        <name>TRANSACCION_INTERNA</name>
+        <identifier class="java.math.BigDecimal">20369</identifier>
+        <schemaName>CHUCHU</schemaName>
+        <type>TABLE</type>
+      </value>
+    </entry>
+    <entry>
+      <key>OracleStorageProperties</key>
+      <value class="oracle.javatools.db.ora.OracleStorageProperties">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">6da6930d-4f55-439a-8582-ff7f8c4c2b71</identifier>
+        </ID>
+        <bufferMode>DEFAULT</bufferMode>
+        <initialExtent>65536</initialExtent>
+        <initrans>1</initrans>
+        <logging>true</logging>
+        <maxExtent>2147483645</maxExtent>
+        <minExtent>1</minExtent>
+        <nextExtent>1048576</nextExtent>
+        <percentFree>10</percentFree>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>TRANSACCION_INTERNA</name>
+                <identifier class="java.math.BigDecimal">20369</identifier>
+                <schemaName>CHUCHU</schemaName>
+                <type>TABLE</type>
+              </parent>
+              <type>OracleStorageProperties</type>
+            </value>
+          </entry>
+        </properties>
+        <tablespaceID class="oracle.javatools.db.ReferenceID">
+          <name>USERS</name>
+          <type>TABLESPACE</type>
+        </tablespaceID>
+      </value>
+    </entry>
+    <entry>
+      <key>TableType</key>
+      <value class="oracle.javatools.db.Table$TableType">NORMAL</value>
+    </entry>
+  </properties>
+  <schema>
+    <name>CHUCHU</name>
+  </schema>
+</table>

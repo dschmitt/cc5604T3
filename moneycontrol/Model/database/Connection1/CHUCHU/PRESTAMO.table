@@ -1,0 +1,417 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<table xmlns="http://xmlns.oracle.com/jdeveloper/1112/offlinedb">
+  <ID class="oracle.javatools.db.IdentifierBasedID">
+    <identifier class="java.lang.String">8852c992-325a-4c0d-9da7-ffe00394d3fe</identifier>
+  </ID>
+  <name>PRESTAMO</name>
+  <columns>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">ba4ff99e-8138-450e-9982-7551ac6a540c</identifier>
+      </ID>
+      <name>FECHA_LIMITE</name>
+      <dataTypeUsage>
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">20048861-9d30-4ae0-98b1-9a42f8a400f5</identifier>
+        </ID>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.OracleDatabaseImpl</providerClass>
+          <typeName>DATE</typeName>
+        </dataTypeID>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>FECHA_LIMITE</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>PRESTAMO</name>
+                  <identifier class="java.math.BigDecimal">20365</identifier>
+                  <schemaName>CHUCHU</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <type>COLUMN</type>
+              </parent>
+              <type>DataTypeUsage</type>
+            </value>
+          </entry>
+        </properties>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>FECHA_LIMITE</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>PRESTAMO</name>
+              <identifier class="java.math.BigDecimal">20365</identifier>
+              <schemaName>CHUCHU</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">23d0b343-7f4e-43d6-826d-548485e8756e</identifier>
+      </ID>
+      <name>TRANSACCION_IDTRANSACCION</name>
+      <dataTypeUsage>
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">305a0fe4-25bc-4f17-9fad-5f2f84d10d9f</identifier>
+        </ID>
+        <attributeValues>
+          <entry>
+            <key>scale</key>
+            <value class="java.lang.Long">0</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.OracleDatabaseImpl</providerClass>
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>TRANSACCION_IDTRANSACCION</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>PRESTAMO</name>
+                  <identifier class="java.math.BigDecimal">20365</identifier>
+                  <schemaName>CHUCHU</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <type>COLUMN</type>
+              </parent>
+              <type>DataTypeUsage</type>
+            </value>
+          </entry>
+        </properties>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>TRANSACCION_IDTRANSACCION</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>PRESTAMO</name>
+              <identifier class="java.math.BigDecimal">20365</identifier>
+              <schemaName>CHUCHU</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+  </columns>
+  <constraints>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">db5ccb3e-6e02-4d46-84db-d2bbe0b9e143</identifier>
+      </ID>
+      <name>PRESTAMO_TRANSACCION_FK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>TRANSACCION_IDTRANSACCION</name>
+          <identifier class="java.lang.String">23d0b343-7f4e-43d6-826d-548485e8756e</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>PRESTAMO</name>
+            <identifier class="java.lang.String">8852c992-325a-4c0d-9da7-ffe00394d3fe</identifier>
+            <schemaName>CHUCHU</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>CHUCHU</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <deleteMode>0</deleteMode>
+      <enabled>true</enabled>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>PRESTAMO_TRANSACCION_FK</name>
+            <childObjectNames>
+              <childObjectName>TRANSACCION_IDTRANSACCION</childObjectName>
+            </childObjectNames>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>PRESTAMO</name>
+              <identifier class="java.math.BigDecimal">20365</identifier>
+              <schemaName>CHUCHU</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <subType>FKConstraint</subType>
+            <type>CONSTRAINT</type>
+          </value>
+        </entry>
+      </properties>
+      <referenceID class="oracle.javatools.db.IdentifierBasedID">
+        <name>TRANSACCION_PK</name>
+        <identifier class="java.lang.String">7c0d0765-92b9-492b-902c-a78e928b5319</identifier>
+        <parent class="oracle.javatools.db.IdentifierBasedID">
+          <name>TRANSACCION</name>
+          <identifier class="java.lang.String">19dfb021-9f4c-4d2d-9d58-fe6ef309496e</identifier>
+          <schemaName>CHUCHU</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>CHUCHU</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.PKConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">1b434bfc-1bba-4ea7-9b33-78a5abe37d8c</identifier>
+      </ID>
+      <name>PRESTAMO_PK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>TRANSACCION_IDTRANSACCION</name>
+          <identifier class="java.lang.String">23d0b343-7f4e-43d6-826d-548485e8756e</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>PRESTAMO</name>
+            <identifier class="java.lang.String">8852c992-325a-4c0d-9da7-ffe00394d3fe</identifier>
+            <schemaName>CHUCHU</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>CHUCHU</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <indexID class="oracle.javatools.db.IdentifierBasedID">
+        <name>PRESTAMO_PK</name>
+        <identifier class="java.lang.String">017f150a-745d-4c6b-916f-0ab6a71c3dfc</identifier>
+        <parent class="oracle.javatools.db.IdentifierBasedID">
+          <name>PRESTAMO</name>
+          <identifier class="java.lang.String">8852c992-325a-4c0d-9da7-ffe00394d3fe</identifier>
+          <schemaName>CHUCHU</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>CHUCHU</schemaName>
+        <type>INDEX</type>
+      </indexID>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>PRESTAMO_PK</name>
+            <childObjectNames>
+              <childObjectName>TRANSACCION_IDTRANSACCION</childObjectName>
+            </childObjectNames>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>PRESTAMO</name>
+              <identifier class="java.math.BigDecimal">20365</identifier>
+              <schemaName>CHUCHU</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <subType>PKConstraint</subType>
+            <type>CONSTRAINT</type>
+          </value>
+        </entry>
+      </properties>
+    </constraint>
+  </constraints>
+  <indexes>
+    <indexe>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">017f150a-745d-4c6b-916f-0ab6a71c3dfc</identifier>
+      </ID>
+      <name>PRESTAMO_PK</name>
+      <columnExpressions>
+        <columnExpression>
+          <ID class="oracle.javatools.db.IdentifierBasedID">
+            <identifier class="java.lang.String">b7d1ca1e-3e68-4da1-a0d5-507a2741d343</identifier>
+          </ID>
+          <expression class="oracle.javatools.db.sql.ColumnUsage">
+            <ID class="oracle.javatools.db.IdentifierBasedID">
+              <identifier class="java.lang.String">863ce798-bd69-4a29-be6a-905d8436ff72</identifier>
+            </ID>
+            <objectID class="oracle.javatools.db.IdentifierBasedID">
+              <name>TRANSACCION_IDTRANSACCION</name>
+              <identifier class="java.lang.String">23d0b343-7f4e-43d6-826d-548485e8756e</identifier>
+              <parent class="oracle.javatools.db.IdentifierBasedID">
+                <name>PRESTAMO</name>
+                <identifier class="java.lang.String">8852c992-325a-4c0d-9da7-ffe00394d3fe</identifier>
+                <schemaName>CHUCHU</schemaName>
+                <type>TABLE</type>
+              </parent>
+              <schemaName>CHUCHU</schemaName>
+              <type>COLUMN</type>
+            </objectID>
+            <outerJoin>false</outerJoin>
+            <properties>
+              <entry>
+                <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+                <value class="oracle.javatools.db.ReferenceID">
+                  <parent class="oracle.javatools.db.ReferenceID">
+                    <parent class="oracle.javatools.db.ReferenceID">
+                      <name>PRESTAMO_PK</name>
+                      <identifier class="java.math.BigDecimal">20366</identifier>
+                      <parent class="oracle.javatools.db.ReferenceID">
+                        <name>PRESTAMO</name>
+                        <identifier class="java.math.BigDecimal">20365</identifier>
+                        <schemaName>CHUCHU</schemaName>
+                        <type>TABLE</type>
+                      </parent>
+                      <schemaName>CHUCHU</schemaName>
+                      <type>INDEX</type>
+                    </parent>
+                    <type>IndexObject</type>
+                  </parent>
+                  <type>SQLFragment</type>
+                </value>
+              </entry>
+            </properties>
+            <qualified>true</qualified>
+          </expression>
+          <order>ASC</order>
+          <properties>
+            <entry>
+              <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+              <value class="oracle.javatools.db.ReferenceID">
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>PRESTAMO_PK</name>
+                  <identifier class="java.math.BigDecimal">20366</identifier>
+                  <parent class="oracle.javatools.db.ReferenceID">
+                    <name>PRESTAMO</name>
+                    <identifier class="java.math.BigDecimal">20365</identifier>
+                    <schemaName>CHUCHU</schemaName>
+                    <type>TABLE</type>
+                  </parent>
+                  <schemaName>CHUCHU</schemaName>
+                  <type>INDEX</type>
+                </parent>
+                <type>IndexObject</type>
+              </value>
+            </entry>
+          </properties>
+        </columnExpression>
+      </columnExpressions>
+      <indexType>UNIQUE</indexType>
+      <parallelDegree>1</parallelDegree>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>PRESTAMO_PK</name>
+            <identifier class="java.math.BigDecimal">20366</identifier>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>PRESTAMO</name>
+              <identifier class="java.math.BigDecimal">20365</identifier>
+              <schemaName>CHUCHU</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <schemaName>CHUCHU</schemaName>
+            <type>INDEX</type>
+          </value>
+        </entry>
+        <entry>
+          <key>OracleStorageProperties</key>
+          <value class="oracle.javatools.db.ora.OracleStorageProperties">
+            <ID class="oracle.javatools.db.IdentifierBasedID">
+              <identifier class="java.lang.String">d94be1d8-f07e-49e0-a0c5-8ce3bfffdc8f</identifier>
+            </ID>
+            <bufferMode>DEFAULT</bufferMode>
+            <initialExtent>65536</initialExtent>
+            <initrans>2</initrans>
+            <logging>true</logging>
+            <maxExtent>2147483645</maxExtent>
+            <minExtent>1</minExtent>
+            <nextExtent>1048576</nextExtent>
+            <percentFree>10</percentFree>
+            <properties>
+              <entry>
+                <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+                <value class="oracle.javatools.db.ReferenceID">
+                  <parent class="oracle.javatools.db.ReferenceID">
+                    <name>PRESTAMO_PK</name>
+                    <identifier class="java.math.BigDecimal">20366</identifier>
+                    <parent class="oracle.javatools.db.ReferenceID">
+                      <name>PRESTAMO</name>
+                      <identifier class="java.math.BigDecimal">20365</identifier>
+                      <schemaName>CHUCHU</schemaName>
+                      <type>TABLE</type>
+                    </parent>
+                    <schemaName>CHUCHU</schemaName>
+                    <type>INDEX</type>
+                  </parent>
+                  <type>OracleStorageProperties</type>
+                </value>
+              </entry>
+            </properties>
+            <tablespaceID class="oracle.javatools.db.ReferenceID">
+              <name>USERS</name>
+              <type>TABLESPACE</type>
+            </tablespaceID>
+          </value>
+        </entry>
+      </properties>
+      <schema>
+        <name>CHUCHU</name>
+      </schema>
+      <systemGenerated>true</systemGenerated>
+    </indexe>
+  </indexes>
+  <properties>
+    <entry>
+      <key>OfflineDBConstants.IMPORT_SOURCE_CONNECTION</key>
+      <value class="java.lang.String">Connection1</value>
+    </entry>
+    <entry>
+      <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+      <value class="oracle.javatools.db.ReferenceID">
+        <name>PRESTAMO</name>
+        <identifier class="java.math.BigDecimal">20365</identifier>
+        <schemaName>CHUCHU</schemaName>
+        <type>TABLE</type>
+      </value>
+    </entry>
+    <entry>
+      <key>OracleStorageProperties</key>
+      <value class="oracle.javatools.db.ora.OracleStorageProperties">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">15d19048-6d4c-48e1-856a-48aff32455e6</identifier>
+        </ID>
+        <bufferMode>DEFAULT</bufferMode>
+        <initialExtent>65536</initialExtent>
+        <initrans>1</initrans>
+        <logging>true</logging>
+        <maxExtent>2147483645</maxExtent>
+        <minExtent>1</minExtent>
+        <nextExtent>1048576</nextExtent>
+        <percentFree>10</percentFree>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>PRESTAMO</name>
+                <identifier class="java.math.BigDecimal">20365</identifier>
+                <schemaName>CHUCHU</schemaName>
+                <type>TABLE</type>
+              </parent>
+              <type>OracleStorageProperties</type>
+            </value>
+          </entry>
+        </properties>
+        <tablespaceID class="oracle.javatools.db.ReferenceID">
+          <name>USERS</name>
+          <type>TABLESPACE</type>
+        </tablespaceID>
+      </value>
+    </entry>
+    <entry>
+      <key>TableType</key>
+      <value class="oracle.javatools.db.Table$TableType">NORMAL</value>
+    </entry>
+  </properties>
+  <schema>
+    <name>CHUCHU</name>
+  </schema>
+</table>

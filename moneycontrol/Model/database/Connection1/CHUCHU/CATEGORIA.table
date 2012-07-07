@@ -1,0 +1,486 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<table xmlns="http://xmlns.oracle.com/jdeveloper/1112/offlinedb">
+  <ID class="oracle.javatools.db.IdentifierBasedID">
+    <identifier class="java.lang.String">c6f89cdf-5aee-4e60-b9ca-bc5b686ae895</identifier>
+  </ID>
+  <name>CATEGORIA</name>
+  <columns>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">d49286f4-c457-467f-8fbe-a51ddff5b09f</identifier>
+      </ID>
+      <name>IDCATEGORIA</name>
+      <dataTypeUsage>
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">05f8fba5-489f-4d0b-8102-4d29318f3219</identifier>
+        </ID>
+        <attributeValues>
+          <entry>
+            <key>scale</key>
+            <value class="java.lang.Long">0</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.OracleDatabaseImpl</providerClass>
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>IDCATEGORIA</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>CATEGORIA</name>
+                  <identifier class="java.math.BigDecimal">20359</identifier>
+                  <schemaName>CHUCHU</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <type>COLUMN</type>
+              </parent>
+              <type>DataTypeUsage</type>
+            </value>
+          </entry>
+        </properties>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>IDCATEGORIA</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>CATEGORIA</name>
+              <identifier class="java.math.BigDecimal">20359</identifier>
+              <schemaName>CHUCHU</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">69c8d089-bb6a-4724-869d-813799a35b55</identifier>
+      </ID>
+      <name>NOMBRE</name>
+      <dataTypeUsage>
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">25d288e3-ee49-4960-9a7b-5b1644ad89d4</identifier>
+        </ID>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">30</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">CHAR</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.Oracle9i</providerClass>
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>NOMBRE</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>CATEGORIA</name>
+                  <identifier class="java.math.BigDecimal">20359</identifier>
+                  <schemaName>CHUCHU</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <type>COLUMN</type>
+              </parent>
+              <type>DataTypeUsage</type>
+            </value>
+          </entry>
+        </properties>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>NOMBRE</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>CATEGORIA</name>
+              <identifier class="java.math.BigDecimal">20359</identifier>
+              <schemaName>CHUCHU</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">5d6312f9-a480-4337-a1cc-6db48aecb314</identifier>
+      </ID>
+      <name>USUARIO_NOMBRE</name>
+      <dataTypeUsage>
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">5dd50c82-25cb-40da-b9ef-9d9c6762d7b4</identifier>
+        </ID>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">30</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">CHAR</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.Oracle9i</providerClass>
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>USUARIO_NOMBRE</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>CATEGORIA</name>
+                  <identifier class="java.math.BigDecimal">20359</identifier>
+                  <schemaName>CHUCHU</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <type>COLUMN</type>
+              </parent>
+              <type>DataTypeUsage</type>
+            </value>
+          </entry>
+        </properties>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>USUARIO_NOMBRE</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>CATEGORIA</name>
+              <identifier class="java.math.BigDecimal">20359</identifier>
+              <schemaName>CHUCHU</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+  </columns>
+  <constraints>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">06635357-9fe1-4ba7-a3ab-c12757c31ea5</identifier>
+      </ID>
+      <name>CATEGORIA_USUARIO_FK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>USUARIO_NOMBRE</name>
+          <identifier class="java.lang.String">5d6312f9-a480-4337-a1cc-6db48aecb314</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>CATEGORIA</name>
+            <identifier class="java.lang.String">c6f89cdf-5aee-4e60-b9ca-bc5b686ae895</identifier>
+            <schemaName>CHUCHU</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>CHUCHU</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <deleteMode>1</deleteMode>
+      <enabled>true</enabled>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>CATEGORIA_USUARIO_FK</name>
+            <childObjectNames>
+              <childObjectName>USUARIO_NOMBRE</childObjectName>
+            </childObjectNames>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>CATEGORIA</name>
+              <identifier class="java.math.BigDecimal">20359</identifier>
+              <schemaName>CHUCHU</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <subType>FKConstraint</subType>
+            <type>CONSTRAINT</type>
+          </value>
+        </entry>
+      </properties>
+      <referenceID class="oracle.javatools.db.IdentifierBasedID">
+        <name>USUARIO_PK</name>
+        <identifier class="java.lang.String">a3514b14-6d2b-4c9f-9c7a-f54aba49909b</identifier>
+        <parent class="oracle.javatools.db.IdentifierBasedID">
+          <name>USUARIO</name>
+          <identifier class="java.lang.String">30cec851-2ab8-4e96-83fd-5a07c7914ff2</identifier>
+          <schemaName>CHUCHU</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>CHUCHU</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.PKConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">3e30ffe2-0c38-4638-b086-ff34a0dd2291</identifier>
+      </ID>
+      <name>CATEGORIA_PK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>IDCATEGORIA</name>
+          <identifier class="java.lang.String">d49286f4-c457-467f-8fbe-a51ddff5b09f</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>CATEGORIA</name>
+            <identifier class="java.lang.String">c6f89cdf-5aee-4e60-b9ca-bc5b686ae895</identifier>
+            <schemaName>CHUCHU</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>CHUCHU</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <indexID class="oracle.javatools.db.IdentifierBasedID">
+        <name>CATEGORIA_PK</name>
+        <identifier class="java.lang.String">7221d13e-c390-44d8-a828-6f5f7cc93fab</identifier>
+        <parent class="oracle.javatools.db.IdentifierBasedID">
+          <name>CATEGORIA</name>
+          <identifier class="java.lang.String">c6f89cdf-5aee-4e60-b9ca-bc5b686ae895</identifier>
+          <schemaName>CHUCHU</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>CHUCHU</schemaName>
+        <type>INDEX</type>
+      </indexID>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>CATEGORIA_PK</name>
+            <childObjectNames>
+              <childObjectName>IDCATEGORIA</childObjectName>
+            </childObjectNames>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>CATEGORIA</name>
+              <identifier class="java.math.BigDecimal">20359</identifier>
+              <schemaName>CHUCHU</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <subType>PKConstraint</subType>
+            <type>CONSTRAINT</type>
+          </value>
+        </entry>
+      </properties>
+    </constraint>
+  </constraints>
+  <indexes>
+    <indexe>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">7221d13e-c390-44d8-a828-6f5f7cc93fab</identifier>
+      </ID>
+      <name>CATEGORIA_PK</name>
+      <columnExpressions>
+        <columnExpression>
+          <ID class="oracle.javatools.db.IdentifierBasedID">
+            <identifier class="java.lang.String">b101cdd8-ea16-45eb-a383-9459b5253c87</identifier>
+          </ID>
+          <expression class="oracle.javatools.db.sql.ColumnUsage">
+            <ID class="oracle.javatools.db.IdentifierBasedID">
+              <identifier class="java.lang.String">5525fb51-07e5-4dfa-ba43-983e68f34af2</identifier>
+            </ID>
+            <objectID class="oracle.javatools.db.IdentifierBasedID">
+              <name>IDCATEGORIA</name>
+              <identifier class="java.lang.String">d49286f4-c457-467f-8fbe-a51ddff5b09f</identifier>
+              <parent class="oracle.javatools.db.IdentifierBasedID">
+                <name>CATEGORIA</name>
+                <identifier class="java.lang.String">c6f89cdf-5aee-4e60-b9ca-bc5b686ae895</identifier>
+                <schemaName>CHUCHU</schemaName>
+                <type>TABLE</type>
+              </parent>
+              <schemaName>CHUCHU</schemaName>
+              <type>COLUMN</type>
+            </objectID>
+            <outerJoin>false</outerJoin>
+            <properties>
+              <entry>
+                <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+                <value class="oracle.javatools.db.ReferenceID">
+                  <parent class="oracle.javatools.db.ReferenceID">
+                    <parent class="oracle.javatools.db.ReferenceID">
+                      <name>CATEGORIA_PK</name>
+                      <identifier class="java.math.BigDecimal">20360</identifier>
+                      <parent class="oracle.javatools.db.ReferenceID">
+                        <name>CATEGORIA</name>
+                        <identifier class="java.math.BigDecimal">20359</identifier>
+                        <schemaName>CHUCHU</schemaName>
+                        <type>TABLE</type>
+                      </parent>
+                      <schemaName>CHUCHU</schemaName>
+                      <type>INDEX</type>
+                    </parent>
+                    <type>IndexObject</type>
+                  </parent>
+                  <type>SQLFragment</type>
+                </value>
+              </entry>
+            </properties>
+            <qualified>true</qualified>
+          </expression>
+          <order>ASC</order>
+          <properties>
+            <entry>
+              <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+              <value class="oracle.javatools.db.ReferenceID">
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>CATEGORIA_PK</name>
+                  <identifier class="java.math.BigDecimal">20360</identifier>
+                  <parent class="oracle.javatools.db.ReferenceID">
+                    <name>CATEGORIA</name>
+                    <identifier class="java.math.BigDecimal">20359</identifier>
+                    <schemaName>CHUCHU</schemaName>
+                    <type>TABLE</type>
+                  </parent>
+                  <schemaName>CHUCHU</schemaName>
+                  <type>INDEX</type>
+                </parent>
+                <type>IndexObject</type>
+              </value>
+            </entry>
+          </properties>
+        </columnExpression>
+      </columnExpressions>
+      <indexType>UNIQUE</indexType>
+      <parallelDegree>1</parallelDegree>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>CATEGORIA_PK</name>
+            <identifier class="java.math.BigDecimal">20360</identifier>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>CATEGORIA</name>
+              <identifier class="java.math.BigDecimal">20359</identifier>
+              <schemaName>CHUCHU</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <schemaName>CHUCHU</schemaName>
+            <type>INDEX</type>
+          </value>
+        </entry>
+        <entry>
+          <key>OracleStorageProperties</key>
+          <value class="oracle.javatools.db.ora.OracleStorageProperties">
+            <ID class="oracle.javatools.db.IdentifierBasedID">
+              <identifier class="java.lang.String">a44f5566-e3b4-47bd-bc71-4d533aa10d80</identifier>
+            </ID>
+            <bufferMode>DEFAULT</bufferMode>
+            <initialExtent>65536</initialExtent>
+            <initrans>2</initrans>
+            <logging>true</logging>
+            <maxExtent>2147483645</maxExtent>
+            <minExtent>1</minExtent>
+            <nextExtent>1048576</nextExtent>
+            <percentFree>10</percentFree>
+            <properties>
+              <entry>
+                <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+                <value class="oracle.javatools.db.ReferenceID">
+                  <parent class="oracle.javatools.db.ReferenceID">
+                    <name>CATEGORIA_PK</name>
+                    <identifier class="java.math.BigDecimal">20360</identifier>
+                    <parent class="oracle.javatools.db.ReferenceID">
+                      <name>CATEGORIA</name>
+                      <identifier class="java.math.BigDecimal">20359</identifier>
+                      <schemaName>CHUCHU</schemaName>
+                      <type>TABLE</type>
+                    </parent>
+                    <schemaName>CHUCHU</schemaName>
+                    <type>INDEX</type>
+                  </parent>
+                  <type>OracleStorageProperties</type>
+                </value>
+              </entry>
+            </properties>
+            <tablespaceID class="oracle.javatools.db.ReferenceID">
+              <name>USERS</name>
+              <type>TABLESPACE</type>
+            </tablespaceID>
+          </value>
+        </entry>
+      </properties>
+      <schema>
+        <name>CHUCHU</name>
+      </schema>
+      <systemGenerated>true</systemGenerated>
+    </indexe>
+  </indexes>
+  <properties>
+    <entry>
+      <key>OfflineDBConstants.IMPORT_SOURCE_CONNECTION</key>
+      <value class="java.lang.String">Connection1</value>
+    </entry>
+    <entry>
+      <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+      <value class="oracle.javatools.db.ReferenceID">
+        <name>CATEGORIA</name>
+        <identifier class="java.math.BigDecimal">20359</identifier>
+        <schemaName>CHUCHU</schemaName>
+        <type>TABLE</type>
+      </value>
+    </entry>
+    <entry>
+      <key>OracleStorageProperties</key>
+      <value class="oracle.javatools.db.ora.OracleStorageProperties">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">a37fa2ac-af3c-4035-91b5-c1a07a46c316</identifier>
+        </ID>
+        <bufferMode>DEFAULT</bufferMode>
+        <initialExtent>65536</initialExtent>
+        <initrans>1</initrans>
+        <logging>true</logging>
+        <maxExtent>2147483645</maxExtent>
+        <minExtent>1</minExtent>
+        <nextExtent>1048576</nextExtent>
+        <percentFree>10</percentFree>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>CATEGORIA</name>
+                <identifier class="java.math.BigDecimal">20359</identifier>
+                <schemaName>CHUCHU</schemaName>
+                <type>TABLE</type>
+              </parent>
+              <type>OracleStorageProperties</type>
+            </value>
+          </entry>
+        </properties>
+        <tablespaceID class="oracle.javatools.db.ReferenceID">
+          <name>USERS</name>
+          <type>TABLESPACE</type>
+        </tablespaceID>
+      </value>
+    </entry>
+    <entry>
+      <key>TableType</key>
+      <value class="oracle.javatools.db.Table$TableType">NORMAL</value>
+    </entry>
+  </properties>
+  <schema>
+    <name>CHUCHU</name>
+  </schema>
+</table>

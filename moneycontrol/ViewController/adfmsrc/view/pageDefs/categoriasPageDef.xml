@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.60.81" id="categoriasPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="SessionEJBLocal" id="SessionEJBLocalIterator"/>
+    <accessorIterator MasterBinding="SessionEJBLocalIterator" Binds="categoriaFindAll" RangeSize="25"
+                      DataControl="SessionEJBLocal" BeanClass="model.Categoria" id="categoriaFindAllIterator"/>
+    <accessorIterator MasterBinding="SessionEJBLocalIterator" Binds="usuarioFindAll" RangeSize="25"
+                      DataControl="SessionEJBLocal" BeanClass="model.Usuario" id="usuarioFindAllIterator"/>
+    <accessorIterator MasterBinding="usuarioFindAllIterator" Binds="categoriaList" RangeSize="25"
+                      DataControl="SessionEJBLocal" BeanClass="model.Categoria" id="categoriaListIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="categoriaFindAllIterator" id="nombre">
+      <AttrNames>
+        <Item Value="nombre"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="categoriaListIterator" id="categoriaList">
+      <nodeDefinition DefName="model.Categoria" Name="categoriaList0">
+        <AttrNames>
+          <Item Value="nombre"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="categoriaListIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+  </bindings>
+</pageDefinition>

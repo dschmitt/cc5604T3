@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<div id="container" xmlns:h="http://java.sun.com/jsf/html" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+     xmlns:f="http://java.sun.com/jsf/core">
+    <div id="header">
+        <img src="../images/logo.gif" alt="Money Control" class="logo"/>
+        <ul id="toplinks">
+            <li>
+                <h:outputText value="#{dateBean}"/>
+            </li>
+             
+            <li>Versión del sitio: <h:outputText value="#{initParam['app.version']}"/></li>
+        </ul>
+    </div>
+    <div id="nav" xmlns:h="http://java.sun.com/jsf/html">
+        <ul>
+            <li>
+                <h:link value="Home" outcome="gotomain"/>
+            </li>
+             
+            <li>
+                <h:link value="Cuentas" outcome="gotocuentas"/>
+            </li>
+             
+            <li>
+                <h:link value="Categoria" outcome="gotocategorias"/>
+            </li>
+             
+            <li>
+                <h:link value="Transacciones" outcome="gototransacciones"/>
+            </li>
+             
+            <li>
+                <h:link value="Transferencias" outcome="gototransferencias"/>
+            </li>
+            
+            <li>
+                <h:link value="Administracion" outcome="gotoadmin"/>
+            </li>
+             
+            <li>
+                <h:link value="Sobre Nosotros" outcome="gotoabout"/>
+            </li>
+        </ul>
+        <ul class="right">
+            <h:panelGroup layout="block" rendered="#{loginBean.cliente == null}">
+                <h:form>
+                    <af:inputText label="Usuario" id="it1" binding="#{loginBean.nombre}"/>
+                    <af:inputText label="Contraseña" id="it2" binding="#{loginBean.clave}" secret="true"/>
+                    <af:commandButton text="Entrar" id="cb1" action="#{loginBean.entrar}"/>
+                </h:form>
+            </h:panelGroup>
+            <h:panelGroup layout="block" rendered="#{loginBean.cliente != null}">
+                <li>
+                    Bienvenido
+                    <h:link outcome="gotoadmin" value="#{loginBean.cliente.nombreCompleto}"/>
+                </li>
+                <li>
+                    <h:form>
+                        <h:commandLink value="Logout" action="#{loginBean.logout}"/>
+                    </h:form>
+                </li>
+            </h:panelGroup>
+        </ul>
+    </div>
+</div>

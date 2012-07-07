@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="11.1.2.60.81" id="DataBindings"
+             SeparateXMLFiles="false" Package="view" ClientType="Generic">
+  <pageMap>
+    <page path="/login.xhtml" usageId="view_loginPageDef"/>
+    <page path="/register.xhtml" usageId="view_registerPageDef"/>
+    <page path="/main.xhtml" usageId="view_mainPageDef"/>
+    <page path="/admin.xhtml" usageId="view_adminPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="view_loginPageDef" path="view.pageDefs.loginPageDef"/>
+    <page id="view_registerPageDef" path="view.pageDefs.registerPageDef"/>
+    <page id="view_mainPageDef" path="view.pageDefs.mainPageDef"/>
+    <page id="view_adminPageDef" path="view.pageDefs.adminPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="SessionEJBLocal" path="model.SessionEJBLocal"/>
+  </dataControlUsages>
+</Application>

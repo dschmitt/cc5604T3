@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.60.81" id="loginPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variable Type="java.lang.String" Name="getUsuarioLogin_nombre" IsQueriable="false"/>
+      <variable Type="java.lang.String" Name="getUsuarioLogin_clave" IsQueriable="false"/>
+    </variableIterator>
+    <methodIterator Binds="getUsuarioLogin.result" DataControl="SessionEJBLocal" RangeSize="25"
+                    BeanClass="model.Usuario" id="getUsuarioLoginIterator"/>
+  </executables>
+  <bindings>
+    <methodAction id="getUsuarioLogin" RequiresUpdateModel="true" Action="invokeMethod" MethodName="getUsuarioLogin"
+                  IsViewObjectMethod="false" DataControl="SessionEJBLocal"
+                  InstanceName="data.SessionEJBLocal.dataProvider"
+                  ReturnName="data.SessionEJBLocal.methodResults.getUsuarioLogin_SessionEJBLocal_dataProvider_getUsuarioLogin_result">
+      <NamedData NDName="nombre" NDType="java.lang.String" NDValue="${bindings.getUsuarioLogin_nombre}"/>
+      <NamedData NDName="clave" NDType="java.lang.String" NDValue="${bindings.getUsuarioLogin_clave}"/>
+    </methodAction>
+    <attributeValues IterBinding="variables" id="nombre">
+      <AttrNames>
+        <Item Value="getUsuarioLogin_nombre"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="clave">
+      <AttrNames>
+        <Item Value="getUsuarioLogin_clave"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

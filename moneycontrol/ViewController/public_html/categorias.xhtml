@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="categorias.xhtml" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelFormLayout id="pfl1">
+                <af:inputText label="Nombre"
+                              required="#{bindings.nombre.hints.mandatory}"
+                              columns="#{bindings.nombre.hints.displayWidth}"
+                              maximumLength="#{bindings.nombre.hints.precision}"
+                              shortDesc="#{bindings.nombre.hints.tooltip}" id="it1" binding="#{categoriasBean.nombre}">
+                    <f:validator binding="#{bindings.nombre.validator}"/>
+                </af:inputText>
+            </af:panelFormLayout>
+            <af:commandButton text="Agregar Nueva Categoría" id="cb1" action="#{categoriasBean.agregar}"/>
+        </af:form>
+        <af:form id="f2">
+            <af:panelCollection id="pc1">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar">
+                    <af:toolbar id="t2">
+                        <af:commandButton actionListener="#{bindings.Delete.execute}" text="Delete"
+                                          disabled="#{!bindings.Delete.enabled}" id="cb2"/>
+                    </af:toolbar>
+                </f:facet>
+                <f:facet name="statusbar"/>
+                <af:table value="#{bindings.categoriaList.collectionModel}" var="row"
+                          rows="#{bindings.categoriaList.rangeSize}"
+                          emptyText="#{bindings.categoriaList.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          fetchSize="#{bindings.categoriaList.rangeSize}" rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.categoriaList.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.categoriaList.collectionModel.makeCurrent}"
+                          rowSelection="single" id="t1" partialTriggers="::cb2">
+                    <af:column sortProperty="#{bindings.categoriaList.hints.nombre.name}" sortable="true"
+                               headerText="Nombre" id="c1">
+                        <af:inputText value="#{row.bindings.nombre.inputValue}"
+                                      label="#{bindings.categoriaList.hints.nombre.label}"
+                                      required="#{bindings.categoriaList.hints.nombre.mandatory}"
+                                      columns="#{bindings.categoriaList.hints.nombre.displayWidth}"
+                                      maximumLength="#{bindings.categoriaList.hints.nombre.precision}"
+                                      shortDesc="#{bindings.categoriaList.hints.nombre.tooltip}" id="it2">
+                            <f:validator binding="#{row.bindings.nombre.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                </af:table>
+            </af:panelCollection>
+        </af:form>
+    </af:document>
+</f:view>

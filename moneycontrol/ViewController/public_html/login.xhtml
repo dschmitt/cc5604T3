@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:h="http://java.sun.com/jsf/html">
+    <af:document title="Money Control" id="d1">
+        <h:outputStylesheet library="css/" name="simpleblue.css" id="os1"/>
+        <af:messages id="m1"/>
+        <div id="container">
+            <div id="topbox">
+                <div id="tbcenter">
+                    <h2>Bienvenido a</h2>
+                     
+                    <h1>Money Control</h1>
+                     
+                    <af:outputLabel value="" id="ol1" binding="#{loginBean.estado}" inlineStyle="color:Red;"/>
+                     
+                    <af:form id="f1">
+                        <af:panelFormLayout id="pfl1">
+                            <af:inputText label="Usuario" required="#{bindings.nombre.hints.mandatory}"
+                                          columns="#{bindings.nombre.hints.displayWidth}"
+                                          maximumLength="#{bindings.nombre.hints.precision}"
+                                          shortDesc="#{bindings.nombre.hints.tooltip}" id="it1"
+                                          binding="#{loginBean.nombre}">
+                                <f:validator binding="#{bindings.nombre.validator}"/>
+                            </af:inputText>
+                            <af:inputText label="Contraseña" required="#{bindings.clave.hints.mandatory}"
+                                          columns="#{bindings.clave.hints.displayWidth}"
+                                          maximumLength="#{bindings.clave.hints.precision}"
+                                          shortDesc="#{bindings.clave.hints.tooltip}" id="it2" secret="true"
+                                          binding="#{loginBean.clave}">
+                                <f:validator binding="#{bindings.clave.validator}"/>
+                            </af:inputText>
+                            <af:commandButton text="Entrar" disabled="#{!bindings.getUsuarioLogin.enabled}" id="cb1"
+                                              action="#{loginBean.entrar}"/>
+                            <af:commandButton text="Registrarse" id="cb2" action="register"/>
+                        </af:panelFormLayout>
+                    </af:form>
+                </div>
+            </div>
+        </div>
+    </af:document>
+</f:view>
