@@ -35,8 +35,8 @@ public class categoriasBean {
             return null;
         }
         Usuario u = lista.get(0);
-        u.addCategoria(c);
-        bd.mergeUsuario(u);
+        c.setUsuario(u);
+        bd.persistCategoria(c);
         return "gotocategorias";
     }
 }

@@ -3,33 +3,35 @@
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
     <af:document title="cuentas.xhtml" id="d1">
         <af:messages id="m1"/>
-        <af:form id="f1">
-            <af:panelFormLayout id="pfl1">
-                <af:inputText label="Nombre"
-                              required="#{bindings.nombre.hints.mandatory}"
-                              columns="#{bindings.nombre.hints.displayWidth}"
-                              maximumLength="#{bindings.nombre.hints.precision}"
-                              shortDesc="#{bindings.nombre.hints.tooltip}" id="it1" binding="#{cuentasBean.nombre}">
-                    <f:validator binding="#{bindings.nombre.validator}"/>
-                </af:inputText>
-                <af:inputText label="Comentario"
-                              required="#{bindings.comentario.hints.mandatory}"
-                              columns="#{bindings.comentario.hints.displayWidth}"
-                              maximumLength="#{bindings.comentario.hints.precision}"
-                              shortDesc="#{bindings.comentario.hints.tooltip}" id="it2"
-                              binding="#{cuentasBean.comentario}">
-                    <f:validator binding="#{bindings.comentario.validator}"/>
-                </af:inputText>
-                <af:commandButton text="Agregar Nueva Cuenta" id="cb1" action="#{cuentasBean.agregar}"/>
-            </af:panelFormLayout>
-        </af:form>
+            <af:form id="f1">
+                <af:panelFormLayout id="pfl1">
+                    <af:inputText label="Nombre" required="#{bindings.nombre.hints.mandatory}"
+                                  columns="#{bindings.nombre.hints.displayWidth}"
+                                  maximumLength="#{bindings.nombre.hints.precision}"
+                                  shortDesc="#{bindings.nombre.hints.tooltip}" id="it1" binding="#{cuentasBean.nombre}">
+                        <f:validator binding="#{bindings.nombre.validator}"/>
+                    </af:inputText>
+                    <af:inputText label="Comentario" required="#{bindings.comentario.hints.mandatory}"
+                                  columns="#{bindings.comentario.hints.displayWidth}"
+                                  maximumLength="#{bindings.comentario.hints.precision}"
+                                  shortDesc="#{bindings.comentario.hints.tooltip}" id="it2"
+                                  binding="#{cuentasBean.comentario}">
+                        <f:validator binding="#{bindings.comentario.validator}"/>
+                    </af:inputText>
+                    <af:commandButton text="Agregar Nueva Cuenta" id="cb1" action="#{cuentasBean.agregar}"/>
+                </af:panelFormLayout>
+            </af:form>
         <af:form id="f2">
             <af:panelCollection id="pc1">
                 <f:facet name="menus"/>
                 <f:facet name="toolbar">
                     <af:toolbar id="t2">
-                        <af:commandButton actionListener="#{bindings.Delete.execute}" text="Delete"
-                                          disabled="#{!bindings.Delete.enabled}" id="cb2"/>
+                        <af:commandToolbarButton actionListener="#{bindings.mergeCuenta.execute}" text="Aplicar Cambios"
+                                                 disabled="#{!bindings.mergeCuenta.enabled}" id="ctb1"
+                                                 action="gotocuentas"/>
+                        <af:commandToolbarButton actionListener="#{bindings.removeCuenta.execute}" text="Borrar"
+                                                 disabled="#{!bindings.removeCuenta.enabled}" id="ctb2"
+                                                 action="gotocuentas"/>
                     </af:toolbar>
                 </f:facet>
                 <f:facet name="statusbar"/>
@@ -37,12 +39,10 @@
                           rows="#{bindings.cuentaList.rangeSize}"
                           emptyText="#{bindings.cuentaList.viewable ? 'No data to display.' : 'Access Denied.'}"
                           fetchSize="#{bindings.cuentaList.rangeSize}" rowBandingInterval="0"
-                          filterModel="#{bindings.cuentaListQuery.queryDescriptor}"
-                          queryListener="#{bindings.cuentaListQuery.processQuery}" filterVisible="true" varStatus="vs"
                           selectedRowKeys="#{bindings.cuentaList.collectionModel.selectedRow}"
                           selectionListener="#{bindings.cuentaList.collectionModel.makeCurrent}" rowSelection="single"
-                          id="t1" partialTriggers="::cb2">
-                    <af:column sortProperty="#{bindings.cuentaList.hints.nombre.name}" filterable="true" sortable="true"
+                          id="t1">
+                    <af:column sortProperty="#{bindings.cuentaList.hints.nombre.name}" sortable="true"
                                headerText="Nombre" id="c1">
                         <af:inputText value="#{row.bindings.nombre.inputValue}"
                                       label="#{bindings.cuentaList.hints.nombre.label}"
@@ -53,12 +53,12 @@
                             <f:validator binding="#{row.bindings.nombre.validator}"/>
                         </af:inputText>
                     </af:column>
-                    <af:column sortProperty="#{bindings.cuentaList.hints.saldo.name}" filterable="true" sortable="true"
-                               headerText="Saldo" id="c2">
+                    <af:column sortProperty="#{bindings.cuentaList.hints.saldo.name}" sortable="true" headerText="Saldo"
+                               id="c2">
                         <af:outputText value="#{row.saldo}" id="ot1"/>
                     </af:column>
-                    <af:column sortProperty="#{bindings.cuentaList.hints.comentario.name}" filterable="true"
-                               sortable="true" headerText="Comentario" id="c3">
+                    <af:column sortProperty="#{bindings.cuentaList.hints.comentario.name}" sortable="true"
+                               headerText="Comentario" id="c3">
                         <af:inputText value="#{row.bindings.comentario.inputValue}"
                                       label="#{bindings.cuentaList.hints.comentario.label}"
                                       required="#{bindings.cuentaList.hints.comentario.mandatory}"

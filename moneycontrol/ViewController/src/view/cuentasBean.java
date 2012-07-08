@@ -1,9 +1,12 @@
 package view;
 
+import java.math.BigDecimal;
+
 import java.util.List;
 
 import javax.faces.context.FacesContext;
 
+import model.Categoria;
 import model.Cuenta;
 import model.SessionEJB;
 
@@ -38,15 +41,16 @@ public class cuentasBean {
         SessionEJB bd = ModelAccess.getSessionEJB();
         Cuenta c = new Cuenta();
         c.setNombre(this.nombre.getValue().toString());
-        c.setComentario(this.nombre.getValue().toString());
+        c.setSaldo(new BigDecimal(0));
+        c.setComentario(this.comentario.getValue().toString());
         String aux = FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario").toString();
         List<Usuario> lista = bd.getUsuarioFindByNombre(aux);
         if(lista.isEmpty()){
             return null;
         }
         Usuario u = lista.get(0);
-        u.addCuenta(c);
-        bd.mergeUsuario(u);
+        c.setUsuario(u);
+        bd.persistCuenta(c);
         return "gotocuentas";
     }
 }

@@ -46,10 +46,10 @@ public class loginBean {
     
     public Usuario getCliente(){
         Usuario u = null;
-        String aux = FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario").toString();
+        Object aux = FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
         if(aux != null){
             SessionEJB bd = ModelAccess.getSessionEJB();
-            List<Usuario> lista = bd.getUsuarioFindByNombre(aux);
+            List<Usuario> lista = bd.getUsuarioFindByNombre(aux.toString());
             if(!lista.isEmpty()) u = lista.get(0);
         }
         return u;
@@ -70,7 +70,7 @@ public class loginBean {
     }
 
     public Object logout() {
-        FacesContext.getCurrentInstance().getExternalContext().getSessionMap().clear();
+        FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove("usuario");
         return "gotologin";
     }
 }
