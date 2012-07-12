@@ -69,7 +69,7 @@ public class loginBean {
         return "gotomain";
     }
 
-    public Object logout() {
+    public String logout() {
         FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove("usuario");
         return "gotologin";
     }

@@ -3,7 +3,6 @@
                 Package="view.pageDefs">
   <parameters/>
   <executables>
-    <variableIterator id="variables"/>
     <iterator Binds="root" RangeSize="25" DataControl="SessionEJBLocal" id="SessionEJBLocalIterator"/>
     <accessorIterator MasterBinding="SessionEJBLocalIterator" Binds="cuentaFindAll" RangeSize="25"
                       DataControl="SessionEJBLocal" BeanClass="model.Cuenta" id="cuentaFindAllIterator"/>
@@ -27,7 +26,7 @@
                   MethodName="getUsuarioFindByNombre" IsViewObjectMethod="false" DataControl="SessionEJBLocal"
                   InstanceName="data.SessionEJBLocal.dataProvider"
                   ReturnName="data.SessionEJBLocal.methodResults.getUsuarioFindByNombre_SessionEJBLocal_dataProvider_getUsuarioFindByNombre_result">
-      <NamedData NDName="nombre" NDType="java.lang.String"/>
+      <NamedData NDName="nombre" NDValue="#{loginBean.cliente.nombre}" NDType="java.lang.String"/>
     </methodAction>
     <tree IterBinding="cuentaListIterator" id="cuentaList">
       <nodeDefinition DefName="model.Cuenta" Name="cuentaList0">

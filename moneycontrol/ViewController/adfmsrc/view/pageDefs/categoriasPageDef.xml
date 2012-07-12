@@ -3,9 +3,11 @@
                 Package="view.pageDefs">
   <parameters/>
   <executables>
-    <iterator Binds="root" RangeSize="25" DataControl="SessionEJBLocal" id="SessionEJBLocalIterator"/>
+    <iterator Binds="root" RangeSize="25" DataControl="SessionEJBLocal" id="SessionEJBLocalIterator"
+              ChangeEventPolicy="ppr"/>
     <accessorIterator MasterBinding="SessionEJBLocalIterator" Binds="categoriaFindAll" RangeSize="25"
-                      DataControl="SessionEJBLocal" BeanClass="model.Categoria" id="categoriaFindAllIterator"/>
+                      DataControl="SessionEJBLocal" BeanClass="model.Categoria" id="categoriaFindAllIterator"
+                      ChangeEventPolicy="ppr"/>
     <methodIterator Binds="getUsuarioFindByNombre.result" DataControl="SessionEJBLocal" RangeSize="25"
                     BeanClass="model.Usuario" id="getUsuarioFindByNombreIterator"/>
     <accessorIterator MasterBinding="getUsuarioFindByNombreIterator" Binds="categoriaList" RangeSize="25"

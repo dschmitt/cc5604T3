@@ -3,217 +3,226 @@
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
         xmlns:h="http://java.sun.com/jsf/html" xmlns="http://www.w3.org/1999/xhtml"
         xmlns:c="http://java.sun.com/jsp/jstl/core">
-    <h:outputStylesheet library="css/" name="simpleblue.css" id="os1"/>
     <af:document title="Administracion" id="d1">
+        <h:outputStylesheet library="css/" name="simpleblue.css" id="os1"/>
         <af:messages id="m1"/>
-        <div id="container">
-            <ul id="promobox">
-                <c:set value="#{loginBean.cliente}" var="cliente"/>
-                 
-                <af:form id="f1">
-                    <af:panelFormLayout id="pfl1">
-                        <af:outputLabel id="ol1" inlineStyle="color:Red;" binding="#{adminBean.estado}"/>
-                        <af:inputText value="#{cliente.nombre}" label="Nombre"
-                                      required="#{bindings.nombre.hints.mandatory}"
-                                      columns="#{bindings.nombre.hints.displayWidth}"
-                                      maximumLength="#{bindings.nombre.hints.precision}"
-                                      shortDesc="#{bindings.nombre.hints.tooltip}" id="it4" visible="false"
-                                      binding="#{adminBean.nombre}" disabled="true">
-                            <f:validator binding="#{bindings.nombre.validator}"/>
-                        </af:inputText>
-                        <af:inputText label="Nombre Completo" required="#{bindings.nombreCompleto.hints.mandatory}"
-                                      columns="#{bindings.nombreCompleto.hints.displayWidth}"
-                                      maximumLength="#{bindings.nombreCompleto.hints.precision}"
-                                      shortDesc="#{bindings.nombreCompleto.hints.tooltip}" id="it1"
-                                      value="#{cliente.nombreCompleto}" binding="#{adminBean.nombreComp}">
-                            <f:validator binding="#{bindings.nombreCompleto.validator}"/>
-                        </af:inputText>
-                        <af:inputText value="#{loginBean.cliente.correo}" label="Correo"
-                                      required="#{bindings.correo.hints.mandatory}"
-                                      columns="#{bindings.correo.hints.displayWidth}"
-                                      maximumLength="#{bindings.correo.hints.precision}"
-                                      shortDesc="#{bindings.correo.hints.tooltip}" id="it2"
-                                      binding="#{adminBean.correo}">
-                            <f:validator binding="#{bindings.correo.validator}"/>
-                        </af:inputText>
-                        <af:inputText label="Contraseña Actual" required="#{bindings['contraseña'].hints.mandatory}"
-                                      columns="#{bindings['contraseña'].hints.displayWidth}"
-                                      maximumLength="#{bindings['contraseña'].hints.precision}"
-                                      shortDesc="#{bindings['contraseña'].hints.tooltip}" id="it3" secret="true"
-                                      binding="#{adminBean.clave}">
-                            <f:validator binding="#{bindings['contraseña'].validator}"/>
-                        </af:inputText>
-                        <af:inputText label="Nueva Contraseña" required="#{bindings['contraseña'].hints.mandatory}"
-                                      columns="#{bindings['contraseña'].hints.displayWidth}"
-                                      maximumLength="#{bindings['contraseña'].hints.precision}"
-                                      shortDesc="#{bindings['contraseña'].hints.tooltip}" id="it5" secret="true"
-                                      binding="#{adminBean.nuevaClave}">
-                            <f:validator binding="#{bindings['contraseña'].validator}"/>
-                        </af:inputText>
-                        <af:commandButton text="Aceptar" id="cb1" action="#{adminBean.actualizar}"/>
-                    </af:panelFormLayout>
-                </af:form>
-                 
-                <li class="two">
-                    <h3>Perfil</h3>
-                    <img src="images/profile-photo.jpg" alt="foto" height="100" width="100"/>
-                    <ul>
+        <af:pageTemplate viewId="/templates/master.jsf" id="pt1">
+            <f:facet name="body">
+                <div id="container">
+                    <ul id="promobox">
+                        <c:set value="#{loginBean.cliente}" var="cliente"/>
                         <li>
-                            <label for="Foto">Foto</label>
-                            <input type="file" name="Cambiar"/>
-                        </li>
-                         
-                        <li>
-                            <label for="Sexo">Sexo</label>
-                            <select name="Sexo" value="usuario">
-                                <option value="h">Hombre</option>
-                                <option value="m">Mujer</option>
-                            </select>
-                        </li>
-                         
-                        <li>
-                            <label for="Ubicacion">Ubicacion</label>
-                            <input type="text" name="Ubicacion" value="Santiago"/>
-                        </li>
-                    </ul>
-                    <div id="sumbit-buttons">
-                        <p>
-                            <a href="content.html" title="Order Now">Submit</a>
-                        </p>
-                        <p>
-                            <a href="hosting.html" title="Order Now">Cancel</a>
-                        </p>
-                    </div>
-                </li>
-            </ul>
-            <c:if test='#{cliente.admin == "1"}'>
-                <ul id="promobox2">
-                    <li>
-                        <h3>Registrar Nuevo Usuario</h3>
-                        <af:form id="f2">
-                            <af:panelFormLayout id="pfl2">
-                                <af:inputText label="Nombre" required="#{bindings.nombre.hints.mandatory}"
+                        <af:form id="f1" defaultCommand="cb1">
+                            <af:panelFormLayout id="pfl1">
+                                <af:outputLabel id="ol1" inlineStyle="color:Red;" binding="#{adminBean.estado}"/>
+                                <af:inputText value="#{cliente.nombre}" label="Nombre"
+                                              required="#{bindings.nombre.hints.mandatory}"
                                               columns="#{bindings.nombre.hints.displayWidth}"
                                               maximumLength="#{bindings.nombre.hints.precision}"
-                                              shortDesc="#{bindings.nombre.hints.tooltip}" id="it6"
-                                              binding="#{registerBean.nombre}">
+                                              shortDesc="#{bindings.nombre.hints.tooltip}" id="it4" visible="false"
+                                              binding="#{adminBean.nombre}" disabled="true">
                                     <f:validator binding="#{bindings.nombre.validator}"/>
                                 </af:inputText>
                                 <af:inputText label="Nombre Completo"
                                               required="#{bindings.nombreCompleto.hints.mandatory}"
                                               columns="#{bindings.nombreCompleto.hints.displayWidth}"
                                               maximumLength="#{bindings.nombreCompleto.hints.precision}"
-                                              shortDesc="#{bindings.nombreCompleto.hints.tooltip}" id="it7"
-                                              binding="#{registerBean.nombreComp}">
+                                              shortDesc="#{bindings.nombreCompleto.hints.tooltip}" id="it1"
+                                              value="#{cliente.nombreCompleto}" binding="#{adminBean.nombreComp}">
                                     <f:validator binding="#{bindings.nombreCompleto.validator}"/>
                                 </af:inputText>
-                                <af:inputText label="Correo" required="#{bindings.correo.hints.mandatory}"
+                                <af:inputText value="#{loginBean.cliente.correo}" label="Correo"
+                                              required="#{bindings.correo.hints.mandatory}"
                                               columns="#{bindings.correo.hints.displayWidth}"
                                               maximumLength="#{bindings.correo.hints.precision}"
-                                              shortDesc="#{bindings.correo.hints.tooltip}" id="it8"
-                                              binding="#{registerBean.correo}">
+                                              shortDesc="#{bindings.correo.hints.tooltip}" id="it2"
+                                              binding="#{adminBean.correo}">
                                     <f:validator binding="#{bindings.correo.validator}"/>
                                 </af:inputText>
-                                <af:inputText label="Contraseña" required="#{bindings['contraseña'].hints.mandatory}"
+                                <af:inputText label="Contraseña Actual"
+                                              required="#{bindings['contraseña'].hints.mandatory}"
                                               columns="#{bindings['contraseña'].hints.displayWidth}"
                                               maximumLength="#{bindings['contraseña'].hints.precision}"
-                                              shortDesc="#{bindings['contraseña'].hints.tooltip}" id="it9" secret="true"
-                                              binding="#{registerBean.clave}">
+                                              shortDesc="#{bindings['contraseña'].hints.tooltip}" id="it3" secret="true"
+                                              binding="#{adminBean.clave}">
                                     <f:validator binding="#{bindings['contraseña'].validator}"/>
                                 </af:inputText>
-                                <af:selectBooleanCheckbox label="Admin" id="sbc1" binding="#{registerBean.admin}"/>
-                                <af:commandButton text="Registrar" id="cb2" action="#{registerBean.registrarAdmin}"/>
+                                <af:inputText label="Nueva Contraseña"
+                                              required="#{bindings['contraseña'].hints.mandatory}"
+                                              columns="#{bindings['contraseña'].hints.displayWidth}"
+                                              maximumLength="#{bindings['contraseña'].hints.precision}"
+                                              shortDesc="#{bindings['contraseña'].hints.tooltip}" id="it5" secret="true"
+                                              binding="#{adminBean.nuevaClave}">
+                                    <f:validator binding="#{bindings['contraseña'].validator}"/>
+                                </af:inputText>
+                                <af:commandButton text="Aceptar" id="cb1" action="#{adminBean.actualizar}"/>
                             </af:panelFormLayout>
                         </af:form>
-                    </li>
-                </ul>
-                <h1>Usuarios Registrados</h1>
-                <af:form id="f3">
-                    <af:panelCollection id="pc1">
-                        <f:facet name="menus"/>
-                        <f:facet name="toolbar">
-                            <af:toolbar id="t2">
-                                <af:commandToolbarButton actionListener="#{bindings.mergeUsuario.execute}"
-                                                         text="Aplicar Cambios"
-                                                         disabled="#{!bindings.mergeUsuario.enabled}" id="ctb2"
-                                                         action="gotoadmin"/>
-                                <af:commandToolbarButton actionListener="#{bindings.removeUsuario.execute}"
-                                                         text="Borrar"
-                                                         disabled="#{!bindings.removeUsuario.enabled}" id="ctb1"
-                                                         action="gotoadmin"/>
-                            </af:toolbar>
-                        </f:facet>
-                        <f:facet name="statusbar"/>
-                        <af:table value="#{bindings.usuarioFindAll.collectionModel}" var="row"
-                                  rows="#{bindings.usuarioFindAll.rangeSize}"
-                                  emptyText="#{bindings.usuarioFindAll.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                  fetchSize="#{bindings.usuarioFindAll.rangeSize}" rowBandingInterval="0"
-                                  selectedRowKeys="#{bindings.usuarioFindAll.collectionModel.selectedRow}"
-                                  selectionListener="#{bindings.usuarioFindAll.collectionModel.makeCurrent}"
-                                  rowSelection="single" id="t1" partialTriggers="::ctb1">
-                            <af:column sortProperty="#{bindings.usuarioFindAll.hints.nombre.name}" sortable="true"
-                                       headerText="Nombre" id="c1">
-                                <af:inputText value="#{row.bindings.nombre.inputValue}"
-                                              label="#{bindings.usuarioFindAll.hints.nombre.label}"
-                                              required="#{bindings.usuarioFindAll.hints.nombre.mandatory}"
-                                              columns="#{bindings.usuarioFindAll.hints.nombre.displayWidth}"
-                                              maximumLength="#{bindings.usuarioFindAll.hints.nombre.precision}"
-                                              shortDesc="#{bindings.usuarioFindAll.hints.nombre.tooltip}" id="it10">
-                                    <f:validator binding="#{row.bindings.nombre.validator}"/>
-                                </af:inputText>
-                            </af:column>
-                            <af:column sortProperty="#{bindings.usuarioFindAll.hints.nombreCompleto.name}"
-                                       sortable="true"
-                                       headerText="Nombre Completo" id="c2">
-                                <af:inputText value="#{row.bindings.nombreCompleto.inputValue}"
-                                              label="#{bindings.usuarioFindAll.hints.nombreCompleto.label}"
-                                              required="#{bindings.usuarioFindAll.hints.nombreCompleto.mandatory}"
-                                              columns="#{bindings.usuarioFindAll.hints.nombreCompleto.displayWidth}"
-                                              maximumLength="#{bindings.usuarioFindAll.hints.nombreCompleto.precision}"
-                                              shortDesc="#{bindings.usuarioFindAll.hints.nombreCompleto.tooltip}"
-                                              id="it11">
-                                    <f:validator binding="#{row.bindings.nombreCompleto.validator}"/>
-                                </af:inputText>
-                            </af:column>
-                            <af:column sortProperty="#{bindings.usuarioFindAll.hints.correo.name}" sortable="true"
-                                       headerText="Correo" id="c3">
-                                <af:inputText value="#{row.bindings.correo.inputValue}"
-                                              label="#{bindings.usuarioFindAll.hints.correo.label}"
-                                              required="#{bindings.usuarioFindAll.hints.correo.mandatory}"
-                                              columns="#{bindings.usuarioFindAll.hints.correo.displayWidth}"
-                                              maximumLength="#{bindings.usuarioFindAll.hints.correo.precision}"
-                                              shortDesc="#{bindings.usuarioFindAll.hints.correo.tooltip}" id="it12">
-                                    <f:validator binding="#{row.bindings.correo.validator}"/>
-                                </af:inputText>
-                            </af:column>
-                            <af:column sortProperty="#{bindings.usuarioFindAll.hints['contraseña'].name}"
-                                       sortable="true" headerText="Contraseña"
-                                       id="c4">
-                                <af:inputText value="#{row.bindings['contraseña'].inputValue}"
-                                              label="#{bindings.usuarioFindAll.hints['contraseña'].label}"
-                                              required="#{bindings.usuarioFindAll.hints['contraseña'].mandatory}"
-                                              columns="#{bindings.usuarioFindAll.hints['contraseña'].displayWidth}"
-                                              maximumLength="#{bindings.usuarioFindAll.hints['contraseña'].precision}"
-                                              shortDesc="#{bindings.usuarioFindAll.hints['contraseña'].tooltip}"
-                                              id="it13">
-                                    <f:validator binding="#{row.bindings['contraseña'].validator}"/>
-                                </af:inputText>
-                            </af:column>
-                            <af:column sortProperty="#{bindings.usuarioFindAll.hints.admin.name}" sortable="true"
-                                       headerText="Administrador" id="c5">
-                                <af:inputText value="#{row.bindings.admin.inputValue}"
-                                              label="#{bindings.usuarioFindAll.hints.admin.label}"
-                                              required="#{bindings.usuarioFindAll.hints.admin.mandatory}"
-                                              columns="#{bindings.usuarioFindAll.hints.admin.displayWidth}"
-                                              maximumLength="#{bindings.usuarioFindAll.hints.admin.precision}"
-                                              shortDesc="#{bindings.usuarioFindAll.hints.admin.tooltip}" id="it14">
-                                    <f:validator binding="#{row.bindings.admin.validator}"/>
-                                </af:inputText>
-                            </af:column>
-                        </af:table>
-                    </af:panelCollection>
-                </af:form>
-            </c:if>
-        </div>
+                        </li>
+                         
+                        <li class="two">
+                            <h3>Perfil</h3>
+                            <img src="images/profile-photo.jpg" alt="foto" height="100" width="100"/>
+                            <ul>
+                                <li>
+                                    <label for="Foto">Foto</label>
+                                    <input type="file" name="Cambiar"/>
+                                </li>
+                                 
+                                <li>
+                                    <label for="Sexo">Sexo</label>
+                                    <select name="Sexo" value="usuario">
+                                        <option value="h">Hombre</option>
+                                        <option value="m">Mujer</option>
+                                    </select>
+                                </li>
+                                 
+                                <li>
+                                    <label for="Ubicacion">Ubicacion</label>
+                                    <input type="text" name="Ubicacion" value="Santiago"/>
+                                </li>
+                            </ul>
+                            <div id="sumbit-buttons">
+                                <p>
+                                    <a href="content.html" title="Order Now">Submit</a>
+                                </p>
+                                <p>
+                                    <a href="hosting.html" title="Order Now">Cancel</a>
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                    <c:if test='#{cliente.admin == "1"}'>
+                        <ul id="promobox2">
+                            <li>
+                                <h3>Registrar Nuevo Usuario</h3>
+                                <af:form id="f2" defaultCommand="cb2">
+                                    <af:panelFormLayout id="pfl2">
+                                        <af:inputText label="Nombre" required="#{bindings.nombre.hints.mandatory}"
+                                                      columns="#{bindings.nombre.hints.displayWidth}"
+                                                      maximumLength="#{bindings.nombre.hints.precision}"
+                                                      shortDesc="#{bindings.nombre.hints.tooltip}" id="it6"
+                                                      binding="#{registerBean.nombre}">
+                                            <f:validator binding="#{bindings.nombre.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText label="Nombre Completo"
+                                                      required="#{bindings.nombreCompleto.hints.mandatory}"
+                                                      columns="#{bindings.nombreCompleto.hints.displayWidth}"
+                                                      maximumLength="#{bindings.nombreCompleto.hints.precision}"
+                                                      shortDesc="#{bindings.nombreCompleto.hints.tooltip}" id="it7"
+                                                      binding="#{registerBean.nombreComp}">
+                                            <f:validator binding="#{bindings.nombreCompleto.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText label="Correo" required="#{bindings.correo.hints.mandatory}"
+                                                      columns="#{bindings.correo.hints.displayWidth}"
+                                                      maximumLength="#{bindings.correo.hints.precision}"
+                                                      shortDesc="#{bindings.correo.hints.tooltip}" id="it8"
+                                                      binding="#{registerBean.correo}">
+                                            <f:validator binding="#{bindings.correo.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText label="Contraseña"
+                                                      required="#{bindings['contraseña'].hints.mandatory}"
+                                                      columns="#{bindings['contraseña'].hints.displayWidth}"
+                                                      maximumLength="#{bindings['contraseña'].hints.precision}"
+                                                      shortDesc="#{bindings['contraseña'].hints.tooltip}" id="it9"
+                                                      secret="true" binding="#{registerBean.clave}">
+                                            <f:validator binding="#{bindings['contraseña'].validator}"/>
+                                        </af:inputText>
+                                        <af:selectBooleanCheckbox label="Admin" id="sbc1"
+                                                                  binding="#{registerBean.admin}"/>
+                                        <af:commandButton text="Registrar" id="cb2"
+                                                          action="#{registerBean.registrarAdmin}"/>
+                                    </af:panelFormLayout>
+                                </af:form>
+                            </li>
+                        </ul>
+                        <h1>Usuarios Registrados</h1>
+                        <af:form id="f3" defaultCommand="cb2">
+                        <af:panelCollection id="pc1">
+                            <f:facet name="menus"/>
+                            <f:facet name="toolbar">
+                                <af:toolbar id="t2">
+                                    <af:commandToolbarButton actionListener="#{bindings.mergeUsuario.execute}"
+                                                             text="Aplicar Cambios"
+                                                             disabled="#{!bindings.mergeUsuario.enabled}" id="ctb1"/>
+                                    <af:commandToolbarButton actionListener="#{bindings.removeUsuario.execute}"
+                                                             text="Borrar"
+                                                             disabled="#{!bindings.removeUsuario.enabled}" id="ctb2"/>
+                                    <af:commandToolbarButton text="Actualizar" id="ctb3"
+                                                             actionListener="#{bindings.Execute.execute}"/>
+                                </af:toolbar>
+                            </f:facet>
+                            <f:facet name="statusbar"/>
+                            <af:table value="#{bindings.usuarioFindAll.collectionModel}" var="row"
+                                      rows="#{bindings.usuarioFindAll.rangeSize}"
+                                      emptyText="#{bindings.usuarioFindAll.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      fetchSize="#{bindings.usuarioFindAll.rangeSize}" rowBandingInterval="0"
+                                      selectedRowKeys="#{bindings.usuarioFindAll.collectionModel.selectedRow}"
+                                      selectionListener="#{bindings.usuarioFindAll.collectionModel.makeCurrent}"
+                                      rowSelection="single" id="t1" partialTriggers="::ctb3">
+                                <af:column sortProperty="#{bindings.usuarioFindAll.hints.nombre.name}" sortable="true"
+                                           headerText="Nombre" id="c1">
+                                    <af:inputText value="#{row.bindings.nombre.inputValue}"
+                                                  label="#{bindings.usuarioFindAll.hints.nombre.label}"
+                                                  required="#{bindings.usuarioFindAll.hints.nombre.mandatory}"
+                                                  columns="#{bindings.usuarioFindAll.hints.nombre.displayWidth}"
+                                                  maximumLength="#{bindings.usuarioFindAll.hints.nombre.precision}"
+                                                  shortDesc="#{bindings.usuarioFindAll.hints.nombre.tooltip}" id="it10">
+                                        <f:validator binding="#{row.bindings.nombre.validator}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.usuarioFindAll.hints.nombreCompleto.name}"
+                                           sortable="true" headerText="Nombre Completo" id="c2">
+                                    <af:inputText value="#{row.bindings.nombreCompleto.inputValue}"
+                                                  label="#{bindings.usuarioFindAll.hints.nombreCompleto.label}"
+                                                  required="#{bindings.usuarioFindAll.hints.nombreCompleto.mandatory}"
+                                                  columns="#{bindings.usuarioFindAll.hints.nombreCompleto.displayWidth}"
+                                                  maximumLength="#{bindings.usuarioFindAll.hints.nombreCompleto.precision}"
+                                                  shortDesc="#{bindings.usuarioFindAll.hints.nombreCompleto.tooltip}"
+                                                  id="it11">
+                                        <f:validator binding="#{row.bindings.nombreCompleto.validator}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.usuarioFindAll.hints.correo.name}" sortable="true"
+                                           headerText="Correo" id="c3">
+                                    <af:inputText value="#{row.bindings.correo.inputValue}"
+                                                  label="#{bindings.usuarioFindAll.hints.correo.label}"
+                                                  required="#{bindings.usuarioFindAll.hints.correo.mandatory}"
+                                                  columns="#{bindings.usuarioFindAll.hints.correo.displayWidth}"
+                                                  maximumLength="#{bindings.usuarioFindAll.hints.correo.precision}"
+                                                  shortDesc="#{bindings.usuarioFindAll.hints.correo.tooltip}" id="it12">
+                                        <f:validator binding="#{row.bindings.correo.validator}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.usuarioFindAll.hints['contraseña'].name}"
+                                           sortable="true" headerText="Contraseña" id="c4">
+                                    <af:inputText value="#{row.bindings['contraseña'].inputValue}"
+                                                  label="#{bindings.usuarioFindAll.hints['contraseña'].label}"
+                                                  required="#{bindings.usuarioFindAll.hints['contraseña'].mandatory}"
+                                                  columns="#{bindings.usuarioFindAll.hints['contraseña'].displayWidth}"
+                                                  maximumLength="#{bindings.usuarioFindAll.hints['contraseña'].precision}"
+                                                  shortDesc="#{bindings.usuarioFindAll.hints['contraseña'].tooltip}"
+                                                  id="it13">
+                                        <f:validator binding="#{row.bindings['contraseña'].validator}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.usuarioFindAll.hints.admin.name}" sortable="true"
+                                           headerText="Administrador" id="c5">
+                                    <af:inputText value="#{row.bindings.admin.inputValue}"
+                                                  label="#{bindings.usuarioFindAll.hints.admin.label}"
+                                                  required="#{bindings.usuarioFindAll.hints.admin.mandatory}"
+                                                  columns="#{bindings.usuarioFindAll.hints.admin.displayWidth}"
+                                                  maximumLength="#{bindings.usuarioFindAll.hints.admin.precision}"
+                                                  shortDesc="#{bindings.usuarioFindAll.hints.admin.tooltip}" id="it14">
+                                        <f:validator binding="#{row.bindings.admin.validator}"/>
+                                    </af:inputText>
+                                </af:column>
+                            </af:table>
+                        </af:panelCollection>
+                        </af:form>
+                    </c:if>
+                </div>
+            </f:facet>
+        </af:pageTemplate>
     </af:document>
 </f:view>

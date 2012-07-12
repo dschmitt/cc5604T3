@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
-    <af:document title="Sobre Nosotros" id="d1">
-        <ui:composition template="templates/master.xhtml" xmlns="http://www.w3.org/1999/xhtml"
-                        xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
-                        xmlns:ui="http://java.sun.com/jsf/facelets">
-            <ui:define name="title">Sobre Money Control</ui:define>
-            <ui:define name="body">
+<f:view xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:af="http://xmlns.oracle.com/adf/faces/rich" xmlns:h="http://java.sun.com/jsf/html">
+    <af:document title="Sobre Money Control" id="d1">
+        <h:outputStylesheet library="css/" name="simpleblue.css" id="os1"/>
+        <af:messages id="m1"/>
+        <af:pageTemplate viewId="/templates/master.jsf" id="pt1">
+            <f:facet name="body">
                 <div id="container">
                     <ul id="promobox">
                         <li>
@@ -29,7 +29,7 @@
                         </li>
                     </ul>
                 </div>
-            </ui:define>
-        </ui:composition>
+            </f:facet>
+        </af:pageTemplate>
     </af:document>
 </f:view>

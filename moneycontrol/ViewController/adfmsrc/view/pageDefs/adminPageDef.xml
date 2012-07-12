@@ -3,15 +3,11 @@
                 Package="view.pageDefs">
   <parameters/>
   <executables>
-    <variableIterator id="variables"/>
     <iterator Binds="root" RangeSize="25" DataControl="SessionEJBLocal" id="SessionEJBLocalIterator"
               ChangeEventPolicy="ppr"/>
     <accessorIterator MasterBinding="SessionEJBLocalIterator" Binds="usuarioFindAll" RangeSize="25"
                       DataControl="SessionEJBLocal" BeanClass="model.Usuario" id="usuarioFindAllIterator"
                       ChangeEventPolicy="ppr"/>
-    <searchRegion Binds="usuarioFindAllIterator" Criteria=""
-                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="usuarioFindAllQuery"/>
-    <page path="oracle.ui.pattern.dynamicShell.model.dynamicTabShellDefinition" id="ptb1" Refresh="ifNeeded"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="usuarioFindAllIterator" id="nombreCompleto">
@@ -63,5 +59,7 @@
       <NamedData NDName="usuario" NDValue="#{bindings.usuarioFindAllIterator.currentRow.dataProvider}"
                  NDType="model.Usuario"/>
     </methodAction>
+    <action IterBinding="usuarioFindAllIterator" id="Execute" InstanceName="model.SessionEJBLocal.usuarioFindAll"
+            DataControl="SessionEJBLocal" RequiresUpdateModel="true" Action="iteratorExecute"/>
   </bindings>
 </pageDefinition>

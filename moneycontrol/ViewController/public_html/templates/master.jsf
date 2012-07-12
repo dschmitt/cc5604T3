@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<af:pageTemplateDef xmlns:af="http://xmlns.oracle.com/adf/faces/rich" var="attrs" definition="private"
+                    xmlns:afc="http://xmlns.oracle.com/adf/faces/rich/component">
+    <af:xmlContent>
+        <afc:component>
+            <afc:display-name>Money Control</afc:display-name>
+            <afc:facet>
+                <afc:facet-name>body</afc:facet-name>
+            </afc:facet>
+        </afc:component>
+    </af:xmlContent>
+    <af:group id="pt_g1">
+        <div id="container" xmlns:h="http://java.sun.com/jsf/html" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+             xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns="http://www.w3.org/1999/xhtml">
+            <div id="header">
+                <img src="../images/logo.gif" alt="Money Control" class="logo"/>
+                <ul id="toplinks">
+                    <li>
+                        <h:outputText value="#{dateBean}" id="pt_ot1"/>
+                    </li>
+                     
+                    <li>
+                        Versión del sitio:
+                        <h:outputText value="#{initParam['app.version']}" id="pt_ot2"/>
+                    </li>
+                </ul>
+            </div>
+            <div id="nav" xmlns:h="http://java.sun.com/jsf/html">
+                <ul>
+                    <li>
+                        <h:link value="Home" outcome="gotomain" id="pt_l1"/>
+                    </li>
+                     
+                    <li>
+                        <h:link value="Cuentas" outcome="gotocuentas" id="pt_l2"/>
+                    </li>
+                     
+                    <li>
+                        <h:link value="Categoria" outcome="gotocategorias" id="pt_l3"/>
+                    </li>
+                     
+                    <li>
+                        <h:link value="Transacciones" outcome="gototransacciones" id="pt_l4"/>
+                    </li>
+                     
+                    <li>
+                        <h:link value="Transferencias" outcome="gototransferencias" id="pt_l5"/>
+                    </li>
+                     
+                    <li>
+                        <h:link value="Administracion" outcome="gotoadmin" id="pt_l6"/>
+                    </li>
+                     
+                    <li>
+                        <h:link value="Sobre Nosotros" outcome="gotoabout" id="pt_l7"/>
+                    </li>
+                </ul>
+                <ul class="right">
+                    <c:set var="cliente" value="#{loginBean.cliente}"/>
+                     
+                    <h:panelGroup layout="block" rendered="#{cliente == null}" id="pt_pg1">
+                        <af:form id="f1" defaultCommand="cb1">
+                            <af:panelFormLayout id="pfl1">
+                                <af:inputText label="Usuario" id="it1" binding="#{loginBean.nombre}"/>
+                                <af:inputText label="Contraseña" id="it2" binding="#{loginBean.clave}" secret="true"/>
+                                <af:commandButton text="Entrar" id="cb1" action="#{loginBean.entrar}"/>
+                            </af:panelFormLayout>
+                        </af:form>
+                    </h:panelGroup>
+                     
+                    <h:panelGroup layout="block" rendered="#{cliente != null}" id="pt_pg2">
+                        <li>
+                            Bienvenido
+                            <h:link outcome="gotoadmin" value="#{cliente.nombreCompleto}" id="pt_l8"/>
+                        </li>
+                        <li>
+                            <af:commandLink text="Logout" id="pt_cl1" action="#{loginBean.logout}"/>
+                        </li>
+                    </h:panelGroup>
+                </ul>
+            </div>
+        </div>
+        <af:facetRef facetName="body"/>
+        <div id="footer" xmlns:h="http://java.sun.com/jsf/html" xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+             xmlns="http://www.w3.org/1999/xhtml">
+            <p>
+                Proyecto Grupo 11 del ramo CC5604, 
+                <a href="http://www.dcc.uchile.cl/">DCC</a>
+                 
+                <a href="http://www.uchile.cl/">Universidad de Chile</a>
+            </p>
+            <h:outputText value="Navegador no soportado."
+                          rendered="#{!fn:containsIgnoreCase(header['user-agent'],'chrome') and !fn:containsIgnoreCase(header['user-agent'],'firefox')}"
+                          id="pt_ot3"/>
+        </div>
+    </af:group>
+</af:pageTemplateDef>

@@ -1,54 +1,63 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:h="http://java.sun.com/jsf/html">
     <af:document title="Categorias" id="d1">
+        <h:outputStylesheet library="css/" name="simpleblue.css" id="os1"/>
         <af:messages id="m1"/>
-        <af:form id="f1">
-            <af:panelFormLayout id="pfl1">
-                <f:facet name="footer"/>
-                <af:inputText label="Nombre" required="#{bindings.nombre.hints.mandatory}"
-                              columns="#{bindings.nombre.hints.displayWidth}"
-                              maximumLength="#{bindings.nombre.hints.precision}"
-                              shortDesc="#{bindings.nombre.hints.tooltip}" id="it1" binding="#{categoriasBean.nombre}">
-                    <f:validator binding="#{bindings.nombre.validator}"/>
-                </af:inputText>
-                <af:commandButton text="Agregar Nueva Categoría" id="cb1" action="#{categoriasBean.agregar}"/>
-            </af:panelFormLayout>
-        </af:form>
-        <af:form id="f2">
-            <af:panelCollection id="pc1">
-                <f:facet name="menus"/>
-                <f:facet name="toolbar">
-                    <af:toolbar id="t2">
-                        <af:commandToolbarButton actionListener="#{bindings.mergeCategoria.execute}"
-                                                 text="Aplicar Cambios" disabled="#{!bindings.mergeCategoria.enabled}"
-                                                 id="ctb1" action="gotocategorias"/>
-                        <af:commandToolbarButton actionListener="#{bindings.removeCategoria.execute}"
-                                                 text="Borrar" disabled="#{!bindings.removeCategoria.enabled}"
-                                                 id="ctb2" action="gotocategorias"/>
-                    </af:toolbar>
-                </f:facet>
-                <f:facet name="statusbar"/>
-                <af:table value="#{bindings.categoriaList.collectionModel}" var="row"
-                          rows="#{bindings.categoriaList.rangeSize}"
-                          emptyText="#{bindings.categoriaList.viewable ? 'No data to display.' : 'Access Denied.'}"
-                          fetchSize="#{bindings.categoriaList.rangeSize}" rowBandingInterval="0"
-                          selectedRowKeys="#{bindings.categoriaList.collectionModel.selectedRow}"
-                          selectionListener="#{bindings.categoriaList.collectionModel.makeCurrent}"
-                          rowSelection="single" id="t1">
-                    <af:column sortProperty="#{bindings.categoriaList.hints.nombre.name}" sortable="true"
-                               headerText="Nombre" id="c1">
-                        <af:inputText value="#{row.bindings.nombre.inputValue}"
-                                      label="#{bindings.categoriaList.hints.nombre.label}"
-                                      required="#{bindings.categoriaList.hints.nombre.mandatory}"
-                                      columns="#{bindings.categoriaList.hints.nombre.displayWidth}"
-                                      maximumLength="#{bindings.categoriaList.hints.nombre.precision}"
-                                      shortDesc="#{bindings.categoriaList.hints.nombre.tooltip}" id="it2">
-                            <f:validator binding="#{row.bindings.nombre.validator}"/>
+        <af:pageTemplate viewId="/templates/master.jsf" id="pt1">
+            <f:facet name="body">
+                <af:form id="f1" defaultCommand="cb1">
+                    <af:panelFormLayout id="pfl1">
+                        <f:facet name="footer"/>
+                        <af:inputText label="Nombre" required="#{bindings.nombre.hints.mandatory}"
+                                      columns="#{bindings.nombre.hints.displayWidth}"
+                                      maximumLength="#{bindings.nombre.hints.precision}"
+                                      shortDesc="#{bindings.nombre.hints.tooltip}" id="it1"
+                                      binding="#{categoriasBean.nombre}">
+                            <f:validator binding="#{bindings.nombre.validator}"/>
                         </af:inputText>
-                    </af:column>
-                </af:table>
-            </af:panelCollection>
-        </af:form>
+                        <af:commandButton text="Agregar Nueva Categoría" id="cb1" action="#{categoriasBean.agregar}"/>
+                    </af:panelFormLayout>
+                </af:form>
+                <af:form id="f2">
+                    <af:panelCollection id="pc1">
+                        <f:facet name="menus"/>
+                        <f:facet name="toolbar">
+                            <af:toolbar id="t2">
+                                <af:commandToolbarButton actionListener="#{bindings.mergeCategoria.execute}"
+                                                         text="Aplicar Cambios"
+                                                         disabled="#{!bindings.mergeCategoria.enabled}" id="ctb1"/>
+                                <af:commandToolbarButton actionListener="#{bindings.removeCategoria.execute}"
+                                                         text="Borrar" disabled="#{!bindings.removeCategoria.enabled}"
+                                                         id="ctb2"/>
+                                <af:commandToolbarButton text="Actualizar" id="ctb3"
+                                                         actionListener="#{bindings.getUsuarioFindByNombre.execute}"/>
+                            </af:toolbar>
+                        </f:facet>
+                        <f:facet name="statusbar"/>
+                        <af:table value="#{bindings.categoriaList.collectionModel}" var="row"
+                                  rows="#{bindings.categoriaList.rangeSize}"
+                                  emptyText="#{bindings.categoriaList.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  fetchSize="#{bindings.categoriaList.rangeSize}" rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.categoriaList.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.categoriaList.collectionModel.makeCurrent}"
+                                  rowSelection="single" id="t1">
+                            <af:column sortProperty="#{bindings.categoriaList.hints.nombre.name}" sortable="true"
+                                       headerText="Nombre" id="c1">
+                                <af:inputText value="#{row.bindings.nombre.inputValue}"
+                                              label="#{bindings.categoriaList.hints.nombre.label}"
+                                              required="#{bindings.categoriaList.hints.nombre.mandatory}"
+                                              columns="#{bindings.categoriaList.hints.nombre.displayWidth}"
+                                              maximumLength="#{bindings.categoriaList.hints.nombre.precision}"
+                                              shortDesc="#{bindings.categoriaList.hints.nombre.tooltip}" id="it3">
+                                    <f:validator binding="#{row.bindings.nombre.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                        </af:table>
+                    </af:panelCollection>
+                </af:form>
+            </f:facet>
+        </af:pageTemplate>
     </af:document>
 </f:view>

@@ -2,74 +2,81 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
     <af:document title="cuentas.xhtml" id="d1">
+        <outputStylesheet library="css/" name="simpleblue.css" id="os1"/>
         <af:messages id="m1"/>
-            <af:form id="f1">
-                <af:panelFormLayout id="pfl1">
-                    <af:inputText label="Nombre" required="#{bindings.nombre.hints.mandatory}"
-                                  columns="#{bindings.nombre.hints.displayWidth}"
-                                  maximumLength="#{bindings.nombre.hints.precision}"
-                                  shortDesc="#{bindings.nombre.hints.tooltip}" id="it1" binding="#{cuentasBean.nombre}">
-                        <f:validator binding="#{bindings.nombre.validator}"/>
-                    </af:inputText>
-                    <af:inputText label="Comentario" required="#{bindings.comentario.hints.mandatory}"
-                                  columns="#{bindings.comentario.hints.displayWidth}"
-                                  maximumLength="#{bindings.comentario.hints.precision}"
-                                  shortDesc="#{bindings.comentario.hints.tooltip}" id="it2"
-                                  binding="#{cuentasBean.comentario}">
-                        <f:validator binding="#{bindings.comentario.validator}"/>
-                    </af:inputText>
-                    <af:commandButton text="Agregar Nueva Cuenta" id="cb1" action="#{cuentasBean.agregar}"/>
-                </af:panelFormLayout>
-            </af:form>
-        <af:form id="f2">
-            <af:panelCollection id="pc1">
-                <f:facet name="menus"/>
-                <f:facet name="toolbar">
-                    <af:toolbar id="t2">
-                        <af:commandToolbarButton actionListener="#{bindings.mergeCuenta.execute}" text="Aplicar Cambios"
-                                                 disabled="#{!bindings.mergeCuenta.enabled}" id="ctb1"
-                                                 action="gotocuentas"/>
-                        <af:commandToolbarButton actionListener="#{bindings.removeCuenta.execute}" text="Borrar"
-                                                 disabled="#{!bindings.removeCuenta.enabled}" id="ctb2"
-                                                 action="gotocuentas"/>
-                    </af:toolbar>
-                </f:facet>
-                <f:facet name="statusbar"/>
-                <af:table value="#{bindings.cuentaList.collectionModel}" var="row"
-                          rows="#{bindings.cuentaList.rangeSize}"
-                          emptyText="#{bindings.cuentaList.viewable ? 'No data to display.' : 'Access Denied.'}"
-                          fetchSize="#{bindings.cuentaList.rangeSize}" rowBandingInterval="0"
-                          selectedRowKeys="#{bindings.cuentaList.collectionModel.selectedRow}"
-                          selectionListener="#{bindings.cuentaList.collectionModel.makeCurrent}" rowSelection="single"
-                          id="t1">
-                    <af:column sortProperty="#{bindings.cuentaList.hints.nombre.name}" sortable="true"
-                               headerText="Nombre" id="c1">
-                        <af:inputText value="#{row.bindings.nombre.inputValue}"
-                                      label="#{bindings.cuentaList.hints.nombre.label}"
-                                      required="#{bindings.cuentaList.hints.nombre.mandatory}"
-                                      columns="#{bindings.cuentaList.hints.nombre.displayWidth}"
-                                      maximumLength="#{bindings.cuentaList.hints.nombre.precision}"
-                                      shortDesc="#{bindings.cuentaList.hints.nombre.tooltip}" id="it3">
-                            <f:validator binding="#{row.bindings.nombre.validator}"/>
+        <af:pageTemplate viewId="/templates/master.jsf" id="pt1">
+            <f:facet name="body">
+                <af:form id="f1">
+                    <af:panelFormLayout id="pfl1">
+                        <af:inputText label="Nombre" required="#{bindings.nombre.hints.mandatory}"
+                                      columns="#{bindings.nombre.hints.displayWidth}"
+                                      maximumLength="#{bindings.nombre.hints.precision}"
+                                      shortDesc="#{bindings.nombre.hints.tooltip}" id="it1"
+                                      binding="#{cuentasBean.nombre}">
+                            <f:validator binding="#{bindings.nombre.validator}"/>
                         </af:inputText>
-                    </af:column>
-                    <af:column sortProperty="#{bindings.cuentaList.hints.saldo.name}" sortable="true" headerText="Saldo"
-                               id="c2">
-                        <af:outputText value="#{row.saldo}" id="ot1"/>
-                    </af:column>
-                    <af:column sortProperty="#{bindings.cuentaList.hints.comentario.name}" sortable="true"
-                               headerText="Comentario" id="c3">
-                        <af:inputText value="#{row.bindings.comentario.inputValue}"
-                                      label="#{bindings.cuentaList.hints.comentario.label}"
-                                      required="#{bindings.cuentaList.hints.comentario.mandatory}"
-                                      columns="#{bindings.cuentaList.hints.comentario.displayWidth}"
-                                      maximumLength="#{bindings.cuentaList.hints.comentario.precision}"
-                                      shortDesc="#{bindings.cuentaList.hints.comentario.tooltip}" id="it4">
-                            <f:validator binding="#{row.bindings.comentario.validator}"/>
+                        <af:inputText label="Comentario" required="#{bindings.comentario.hints.mandatory}"
+                                      columns="#{bindings.comentario.hints.displayWidth}"
+                                      maximumLength="#{bindings.comentario.hints.precision}"
+                                      shortDesc="#{bindings.comentario.hints.tooltip}" id="it2"
+                                      binding="#{cuentasBean.comentario}">
+                            <f:validator binding="#{bindings.comentario.validator}"/>
                         </af:inputText>
-                    </af:column>
-                </af:table>
-            </af:panelCollection>
-        </af:form>
+                        <af:commandButton text="Agregar Nueva Cuenta" id="cb1" action="#{cuentasBean.agregar}"/>
+                    </af:panelFormLayout>
+                </af:form>
+                <af:form id="f2">
+                    <af:panelCollection id="pc1">
+                        <f:facet name="menus"/>
+                        <f:facet name="toolbar">
+                            <af:toolbar id="t2">
+                                <af:commandToolbarButton actionListener="#{bindings.mergeCuenta.execute}"
+                                                         text="Aplicar Cambios"
+                                                         disabled="#{!bindings.mergeCuenta.enabled}" id="ctb1"/>
+                                <af:commandToolbarButton actionListener="#{bindings.removeCuenta.execute}" text="Borrar"
+                                                         disabled="#{!bindings.removeCuenta.enabled}" id="ctb2"/>
+                                <af:commandToolbarButton text="Actualizar" id="ctb3"
+                                                         actionListener="#{bindings.getUsuarioFindByNombre.execute}"/>
+                            </af:toolbar>
+                        </f:facet>
+                        <f:facet name="statusbar"/>
+                        <af:table value="#{bindings.cuentaList.collectionModel}" var="row"
+                                  rows="#{bindings.cuentaList.rangeSize}"
+                                  emptyText="#{bindings.cuentaList.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  fetchSize="#{bindings.cuentaList.rangeSize}" rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.cuentaList.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.cuentaList.collectionModel.makeCurrent}"
+                                  rowSelection="single" id="t1">
+                            <af:column sortProperty="#{bindings.cuentaList.hints.nombre.name}" sortable="true"
+                                       headerText="Nombre" id="c1">
+                                <af:inputText value="#{row.bindings.nombre.inputValue}"
+                                              label="#{bindings.cuentaList.hints.nombre.label}"
+                                              required="#{bindings.cuentaList.hints.nombre.mandatory}"
+                                              columns="#{bindings.cuentaList.hints.nombre.displayWidth}"
+                                              maximumLength="#{bindings.cuentaList.hints.nombre.precision}"
+                                              shortDesc="#{bindings.cuentaList.hints.nombre.tooltip}" id="it3">
+                                    <f:validator binding="#{row.bindings.nombre.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.cuentaList.hints.saldo.name}" sortable="true"
+                                       headerText="Saldo" id="c2">
+                                <af:outputText value="#{row.saldo}" id="ot1"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.cuentaList.hints.comentario.name}" sortable="true"
+                                       headerText="Comentario" id="c3">
+                                <af:inputText value="#{row.bindings.comentario.inputValue}"
+                                              label="#{bindings.cuentaList.hints.comentario.label}"
+                                              required="#{bindings.cuentaList.hints.comentario.mandatory}"
+                                              columns="#{bindings.cuentaList.hints.comentario.displayWidth}"
+                                              maximumLength="#{bindings.cuentaList.hints.comentario.precision}"
+                                              shortDesc="#{bindings.cuentaList.hints.comentario.tooltip}" id="it4">
+                                    <f:validator binding="#{row.bindings.comentario.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                        </af:table>
+                    </af:panelCollection>
+                </af:form>
+            </f:facet>
+        </af:pageTemplate>
     </af:document>
 </f:view>
