@@ -16,7 +16,11 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 @Entity
-@NamedQueries( { @NamedQuery(name = "Categoria.findAll", query = "select o from Categoria o") })
+@NamedQueries({
+@NamedQuery(name = "Categoria.findAll", query = "select o from Categoria o"),
+@NamedQuery(name = "Categoria.findByID", query = "select o from Categoria o where o.idcategoria = :id"),
+@NamedQuery(name = "Categoria.findByUsuario", query = "select o from Categoria o where o.usuario.nombre = :nombre")
+})
 public class Categoria implements Serializable {
     @Id
     @Column(nullable = false)

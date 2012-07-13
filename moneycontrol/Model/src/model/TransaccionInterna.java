@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import java.math.BigDecimal;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -28,7 +29,7 @@ public class TransaccionInterna implements Serializable {
     @ManyToOne
     @JoinColumn(name = "CUENTA_IDCUENTA")
     private Cuenta cuenta;
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "TRANSACCION_IDTRANSACCION")
     private Transaccion transaccion;
 

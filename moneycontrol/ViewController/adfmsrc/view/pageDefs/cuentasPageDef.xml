@@ -4,12 +4,10 @@
   <parameters/>
   <executables>
     <iterator Binds="root" RangeSize="25" DataControl="SessionEJBLocal" id="SessionEJBLocalIterator"/>
-    <accessorIterator MasterBinding="SessionEJBLocalIterator" Binds="cuentaFindAll" RangeSize="25"
+    <accessorIterator MasterBinding="SessionEJBLocalIterator" Binds="cuentaFindAll" RangeSize="-1"
                       DataControl="SessionEJBLocal" BeanClass="model.Cuenta" id="cuentaFindAllIterator"/>
-    <methodIterator Binds="getUsuarioFindByNombre.result" DataControl="SessionEJBLocal" RangeSize="25"
-                    BeanClass="model.Usuario" id="getUsuarioFindByNombreIterator"/>
-    <accessorIterator MasterBinding="getUsuarioFindByNombreIterator" Binds="cuentaList" RangeSize="25"
-                      DataControl="SessionEJBLocal" BeanClass="model.Cuenta" id="cuentaListIterator"/>
+    <methodIterator Binds="getCuentaFindByUsuario.result" DataControl="SessionEJBLocal" RangeSize="25"
+                    BeanClass="model.Cuenta" id="getCuentaFindByUsuarioIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="cuentaFindAllIterator" id="nombre">
@@ -22,14 +20,14 @@
         <Item Value="comentario"/>
       </AttrNames>
     </attributeValues>
-    <methodAction id="getUsuarioFindByNombre" RequiresUpdateModel="true" Action="invokeMethod"
-                  MethodName="getUsuarioFindByNombre" IsViewObjectMethod="false" DataControl="SessionEJBLocal"
+    <methodAction id="getCuentaFindByUsuario" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="getCuentaFindByUsuario" IsViewObjectMethod="false" DataControl="SessionEJBLocal"
                   InstanceName="data.SessionEJBLocal.dataProvider"
-                  ReturnName="data.SessionEJBLocal.methodResults.getUsuarioFindByNombre_SessionEJBLocal_dataProvider_getUsuarioFindByNombre_result">
+                  ReturnName="data.SessionEJBLocal.methodResults.getCuentaFindByUsuario_SessionEJBLocal_dataProvider_getCuentaFindByUsuario_result">
       <NamedData NDName="nombre" NDValue="#{loginBean.cliente.nombre}" NDType="java.lang.String"/>
     </methodAction>
-    <tree IterBinding="cuentaListIterator" id="cuentaList">
-      <nodeDefinition DefName="model.Cuenta" Name="cuentaList0">
+    <tree IterBinding="getCuentaFindByUsuarioIterator" id="Cuenta">
+      <nodeDefinition DefName="model.Cuenta" Name="Cuenta0">
         <AttrNames>
           <Item Value="nombre"/>
           <Item Value="saldo"/>
@@ -41,14 +39,21 @@
                   IsViewObjectMethod="false" DataControl="SessionEJBLocal"
                   InstanceName="data.SessionEJBLocal.dataProvider"
                   ReturnName="data.SessionEJBLocal.methodResults.mergeCuenta_SessionEJBLocal_dataProvider_mergeCuenta_result">
-      <NamedData NDName="cuenta" NDValue="#{bindings.cuentaListIterator.currentRow.dataProvider}"
+      <NamedData NDName="cuenta" NDValue="#{bindings.getCuentaFindByUsuarioIterator.currentRow.dataProvider}"
                  NDType="model.Cuenta"/>
     </methodAction>
     <methodAction id="removeCuenta" RequiresUpdateModel="true" Action="invokeMethod" MethodName="removeCuenta"
                   IsViewObjectMethod="false" DataControl="SessionEJBLocal"
                   InstanceName="data.SessionEJBLocal.dataProvider">
-      <NamedData NDName="cuenta" NDValue="#{bindings.cuentaListIterator.currentRow.dataProvider}"
+      <NamedData NDName="cuenta" NDValue="#{bindings.getCuentaFindByUsuarioIterator.currentRow.dataProvider}"
                  NDType="model.Cuenta"/>
     </methodAction>
+    <list ListOperMode="navigation" IterBinding="getCuentaFindByUsuarioIterator"
+          ListIter="getCuentaFindByUsuarioIterator" id="idcuenta">
+      <AttrNames>
+        <Item Value="idcuenta"/>
+        <Item Value="nombre"/>
+      </AttrNames>
+    </list>
   </bindings>
 </pageDefinition>

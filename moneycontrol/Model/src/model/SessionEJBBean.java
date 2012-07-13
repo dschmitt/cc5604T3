@@ -1,5 +1,8 @@
 package model;
 
+import java.math.BigDecimal;
+
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -157,5 +160,57 @@ public class SessionEJBBean implements SessionEJB, SessionEJBLocal {
     /** <code>select o from Cuenta o</code> */
     public List<Cuenta> getCuentaFindAll() {
         return em.createNamedQuery("Cuenta.findAll").getResultList();
+    }
+
+    /** <code>select sum(o.monto) from Transaccion o where o.tipo = 'INGRESO' and o.cuenta.idcuenta = :cuenta and o.fecha < :fecha</code> */
+    public List<BigDecimal> getTransaccionFindIngresos(BigDecimal cuenta, Date fecha) {
+        return em.createNamedQuery("Transaccion.findIngresos").setParameter("cuenta", cuenta).setParameter("fecha",
+                                                                                                           fecha).getResultList();
+    }
+
+    /** <code>select sum(o.monto) from Transaccion o where o.tipo = 'GASTO' and o.cuenta.idcuenta = :cuenta and o.fecha < :fecha</code> */
+    public List<BigDecimal> getTransaccionFindGastos(BigDecimal cuenta, Date fecha) {
+        return em.createNamedQuery("Transaccion.findGastos").setParameter("cuenta", cuenta).setParameter("fecha",
+                                                                                                         fecha).getResultList();
+    }
+
+    /** <code>select sum(o.monto) from Transaccion o where o.tipo = 'PRESTAMO' and o.cuenta.idcuenta = :cuenta and o.fecha < :fecha</code> */
+    public List<BigDecimal> getTransaccionFindPrestamos(BigDecimal cuenta, Date fecha) {
+        return em.createNamedQuery("Transaccion.findPrestamos").setParameter("cuenta", cuenta).setParameter("fecha",
+                                                                                                            fecha).getResultList();
+    }
+
+    /** <code>select o from Transaccion o where o.cuenta.usuario.nombre = :nombre and o.fecha between :antes and :despues</code> */
+    public List<Transaccion> getTransaccionFindBetweenFecha(String nombre, Date antes, Date despues) {
+        if (antes == null || despues == null)
+            return getTransaccionFindByUsuario(nombre);
+        return em.createNamedQuery("Transaccion.findBetweenFecha").setParameter("nombre", nombre).setParameter("antes",
+                                                                                                               antes).setParameter("despues",
+                                                                                                                                   despues).getResultList();
+    }
+
+    /** <code>select o from Transaccion o where o.cuenta.usuario.nombre = :nombre</code> */
+    public List<Transaccion> getTransaccionFindByUsuario(String nombre) {
+        return em.createNamedQuery("Transaccion.findByUsuario").setParameter("nombre", nombre).getResultList();
+    }
+
+    /** <code>select o from Categoria o where o.idcategoria = :id</code> */
+    public List<Categoria> getCategoriaFindByID(BigDecimal id) {
+        return em.createNamedQuery("Categoria.findByID").setParameter("id", id).getResultList();
+    }
+
+    /** <code>select o from Cuenta o where o.idcuenta = :id</code> */
+    public List<Cuenta> getCuentaFindByID(BigDecimal id) {
+        return em.createNamedQuery("Cuenta.findByID").setParameter("id", id).getResultList();
+    }
+
+    /** <code>select o from Categoria o where o.usuario.nombre = :nombre</code> */
+    public List<Categoria> getCategoriaFindByUsuario(String nombre) {
+        return em.createNamedQuery("Categoria.findByUsuario").setParameter("nombre", nombre).getResultList();
+    }
+
+    /** <code>select o from Cuenta o where o.usuario.nombre = :nombre</code> */
+    public List<Cuenta> getCuentaFindByUsuario(String nombre) {
+        return em.createNamedQuery("Cuenta.findByUsuario").setParameter("nombre", nombre).getResultList();
     }
 }

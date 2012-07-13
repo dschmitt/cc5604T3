@@ -1,8 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
-    <af:document title="cuentas.xhtml" id="d1">
-        <outputStylesheet library="css/" name="simpleblue.css" id="os1"/>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html">
+    <af:document title="Cuentas" id="d1">
+        <h:outputStylesheet library="css/" name="simpleblue.css" id="os1"/>
         <af:messages id="m1"/>
         <af:pageTemplate viewId="/templates/master.jsf" id="pt1">
             <f:facet name="body">
@@ -25,6 +26,7 @@
                         <af:commandButton text="Agregar Nueva Cuenta" id="cb1" action="#{cuentasBean.agregar}"/>
                     </af:panelFormLayout>
                 </af:form>
+                <h1>Datos de las Cuentas</h1>
                 <af:form id="f2">
                     <af:panelCollection id="pc1">
                         <f:facet name="menus"/>
@@ -36,45 +38,58 @@
                                 <af:commandToolbarButton actionListener="#{bindings.removeCuenta.execute}" text="Borrar"
                                                          disabled="#{!bindings.removeCuenta.enabled}" id="ctb2"/>
                                 <af:commandToolbarButton text="Actualizar" id="ctb3"
-                                                         actionListener="#{bindings.getUsuarioFindByNombre.execute}"/>
+                                                         actionListener="#{bindings.getCuentaFindByUsuario.execute}"/>
                             </af:toolbar>
                         </f:facet>
                         <f:facet name="statusbar"/>
-                        <af:table value="#{bindings.cuentaList.collectionModel}" var="row"
-                                  rows="#{bindings.cuentaList.rangeSize}"
-                                  emptyText="#{bindings.cuentaList.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                  fetchSize="#{bindings.cuentaList.rangeSize}" rowBandingInterval="0"
-                                  selectedRowKeys="#{bindings.cuentaList.collectionModel.selectedRow}"
-                                  selectionListener="#{bindings.cuentaList.collectionModel.makeCurrent}"
+                        <af:table value="#{bindings.Cuenta.collectionModel}" var="row"
+                                  rows="#{bindings.Cuenta.rangeSize}"
+                                  emptyText="#{bindings.Cuenta.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  fetchSize="#{bindings.Cuenta.rangeSize}" rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.Cuenta.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.Cuenta.collectionModel.makeCurrent}"
                                   rowSelection="single" id="t1">
-                            <af:column sortProperty="#{bindings.cuentaList.hints.nombre.name}" sortable="true"
+                            <af:column sortProperty="#{bindings.Cuenta.hints.nombre.name}" sortable="true"
                                        headerText="Nombre" id="c1">
                                 <af:inputText value="#{row.bindings.nombre.inputValue}"
-                                              label="#{bindings.cuentaList.hints.nombre.label}"
-                                              required="#{bindings.cuentaList.hints.nombre.mandatory}"
-                                              columns="#{bindings.cuentaList.hints.nombre.displayWidth}"
-                                              maximumLength="#{bindings.cuentaList.hints.nombre.precision}"
-                                              shortDesc="#{bindings.cuentaList.hints.nombre.tooltip}" id="it3">
+                                              label="#{bindings.Cuenta.hints.nombre.label}"
+                                              required="#{bindings.Cuenta.hints.nombre.mandatory}"
+                                              columns="#{bindings.Cuenta.hints.nombre.displayWidth}"
+                                              maximumLength="#{bindings.Cuenta.hints.nombre.precision}"
+                                              shortDesc="#{bindings.Cuenta.hints.nombre.tooltip}" id="it3">
                                     <f:validator binding="#{row.bindings.nombre.validator}"/>
                                 </af:inputText>
                             </af:column>
-                            <af:column sortProperty="#{bindings.cuentaList.hints.saldo.name}" sortable="true"
+                            <af:column sortProperty="#{bindings.Cuenta.hints.saldo.name}" sortable="true"
                                        headerText="Saldo" id="c2">
                                 <af:outputText value="#{row.saldo}" id="ot1"/>
                             </af:column>
-                            <af:column sortProperty="#{bindings.cuentaList.hints.comentario.name}" sortable="true"
+                            <af:column sortProperty="#{bindings.Cuenta.hints.comentario.name}" sortable="true"
                                        headerText="Comentario" id="c3">
                                 <af:inputText value="#{row.bindings.comentario.inputValue}"
-                                              label="#{bindings.cuentaList.hints.comentario.label}"
-                                              required="#{bindings.cuentaList.hints.comentario.mandatory}"
-                                              columns="#{bindings.cuentaList.hints.comentario.displayWidth}"
-                                              maximumLength="#{bindings.cuentaList.hints.comentario.precision}"
-                                              shortDesc="#{bindings.cuentaList.hints.comentario.tooltip}" id="it4">
+                                              label="#{bindings.Cuenta.hints.comentario.label}"
+                                              required="#{bindings.Cuenta.hints.comentario.mandatory}"
+                                              columns="#{bindings.Cuenta.hints.comentario.displayWidth}"
+                                              maximumLength="#{bindings.Cuenta.hints.comentario.precision}"
+                                              shortDesc="#{bindings.Cuenta.hints.comentario.tooltip}" id="it4">
                                     <f:validator binding="#{row.bindings.comentario.validator}"/>
                                 </af:inputText>
                             </af:column>
                         </af:table>
                     </af:panelCollection>
+                </af:form>
+                <h1>Buscar Saldo</h1>
+                <af:form id="f3">
+                    <af:panelFormLayout id="pfl2">
+                        <af:selectOneChoice label="Cuenta" id="soc1" binding="#{cuentasBean.selectCuenta}">
+                            <f:selectItems value="#{bindings.idcuenta.items}" id="si1"/>
+                        </af:selectOneChoice>
+                        <af:inputDate label="Fecha" id="id1" binding="#{cuentasBean.inputFecha}"/>
+                        <f:facet name="footer">
+                            <af:commandButton text="Buscar" id="cb2" actionListener="#{cuentasBean.buscarSaldo}"/>
+                        </f:facet>
+                        <af:outputText id="ot2" inlineStyle="color:Blue;" binding="#{cuentasBean.resultado}"/>
+                    </af:panelFormLayout>
                 </af:form>
             </f:facet>
         </af:pageTemplate>

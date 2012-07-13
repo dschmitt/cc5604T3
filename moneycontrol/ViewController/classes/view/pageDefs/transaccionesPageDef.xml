@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.60.81" id="transaccionesPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <methodIterator Binds="getTransaccionFindBetweenFecha.result" DataControl="SessionEJBLocal" RangeSize="25"
+                    BeanClass="model.Transaccion" id="getTransaccionFindBetweenFechaIterator"/>
+    <searchRegion Binds="getTransaccionFindBetweenFechaIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="TransaccionQuery"/>
+  </executables>
+  <bindings>
+    <methodAction id="getTransaccionFindBetweenFecha" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="getTransaccionFindBetweenFecha" IsViewObjectMethod="false" DataControl="SessionEJBLocal"
+                  InstanceName="data.SessionEJBLocal.dataProvider"
+                  ReturnName="data.SessionEJBLocal.methodResults.getTransaccionFindBetweenFecha_SessionEJBLocal_dataProvider_getTransaccionFindBetweenFecha_result">
+      <NamedData NDName="nombre" NDValue="#{loginBean.cliente.nombre}" NDType="java.lang.String"/>
+      <NamedData NDName="antes" NDValue="#{transaccionesBean.antes.value}" NDType="java.util.Date"/>
+      <NamedData NDName="despues" NDValue="#{transaccionesBean.despues.value}" NDType="java.util.Date"/>
+    </methodAction>
+    <tree IterBinding="getTransaccionFindBetweenFechaIterator" id="Transaccion">
+      <nodeDefinition DefName="model.Transaccion" Name="Transaccion0">
+        <AttrNames>
+          <Item Value="fecha"/>
+          <Item Value="monto"/>
+          <Item Value="tipo"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="cuenta"/>
+          <Item Value="categoria"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="model.Cuenta" Name="Transaccion1">
+        <AttrNames>
+          <Item Value="comentario"/>
+          <Item Value="idcuenta"/>
+          <Item Value="nombre"/>
+          <Item Value="saldo"/>
+        </AttrNames>
+      </nodeDefinition>
+      <nodeDefinition DefName="model.Categoria" Name="Transaccion2">
+        <AttrNames>
+          <Item Value="idcategoria"/>
+          <Item Value="nombre"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

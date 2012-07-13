@@ -167,6 +167,9 @@
     <extension>amf</extension>
     <mime-type>application/x-amf</mime-type>
   </mime-mapping>
+  <welcome-file-list>
+    <welcome-file>/login.xhtml</welcome-file>
+  </welcome-file-list>
   <ejb-local-ref>
     <ejb-ref-name>ejb/local/SessionEJB</ejb-ref-name>
     <ejb-ref-type>Session</ejb-ref-type>

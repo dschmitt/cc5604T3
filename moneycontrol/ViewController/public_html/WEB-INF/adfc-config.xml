@@ -25,4 +25,14 @@
     <managed-bean-class>view.cuentasBean</managed-bean-class>
     <managed-bean-scope>request</managed-bean-scope>
   </managed-bean>
+  <managed-bean id="__6">
+    <managed-bean-name>transaccionesBean</managed-bean-name>
+    <managed-bean-class>view.transaccionesBean</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__7">
+    <managed-bean-name>transferenciasBean</managed-bean-name>
+    <managed-bean-class>view.transferenciasBean</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
 </adfc-config>

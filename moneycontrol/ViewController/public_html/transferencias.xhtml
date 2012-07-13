@@ -1,7 +1,62 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
-    <af:document title="transferencias.xhtml" id="d1">
-        <af:form id="f1"></af:form>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html">
+    <af:document title="Transferencias" id="d1">
+        <h:outputStylesheet library="css/" name="simpleblue.css" id="os1"/>
+        <af:messages id="m1"/>
+        <af:pageTemplate viewId="/templates/master.jsf" id="pt1">
+            <f:facet name="body">
+                <af:form id="f2">
+                    <af:panelFormLayout id="pfl2">
+                        <af:outputText id="ot1" inlineStyle="color:Red;" binding="#{transferenciasBean.estado}"/>
+                        <af:inputDate label="Fecha" required="#{bindings.fecha.hints.mandatory}"
+                                      columns="#{bindings.fecha.hints.displayWidth}"
+                                      shortDesc="#{bindings.fecha.hints.tooltip}" id="id1"
+                                      binding="#{transferenciasBean.fecha}">
+                            <f:validator binding="#{bindings.fecha.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.fecha.format}"/>
+                        </af:inputDate>
+                        <af:inputNumberSpinbox label="Monto" required="#{bindings.monto.hints.mandatory}"
+                                               columns="#{bindings.monto.hints.displayWidth}"
+                                               shortDesc="#{bindings.monto.hints.tooltip}" id="it3" value="0"
+                                               binding="#{transferenciasBean.monto}">
+                            <f:validator binding="#{bindings.monto.validator}"/>
+                        </af:inputNumberSpinbox>
+                        <af:selectOneChoice label="Tipo" id="soc1" binding="#{transferenciasBean.tipo}">
+                            <af:selectItem label="Ingreso" value="INGRESO" id="si1"/>
+                            <af:selectItem label="Gasto" value="GASTO" id="si5"/>
+                            <af:selectItem label="Préstamo" value="PRESTAMO" id="si6"/>
+                        </af:selectOneChoice>
+                        <af:selectOneChoice value="#{bindings.cuentaList.inputValue}"
+                                            label="Cuenta"
+                                            required="#{bindings.cuentaList.hints.mandatory}"
+                                            shortDesc="#{bindings.cuentaList.hints.tooltip}" id="soc2"
+                                            binding="#{transferenciasBean.cuenta}">
+                            <f:selectItems value="#{bindings.cuentaList.items}" id="si2"/>
+                        </af:selectOneChoice>
+                        <af:selectOneChoice value="#{bindings.categoriaList.inputValue}"
+                                            label="Categoría"
+                                            required="#{bindings.categoriaList.hints.mandatory}"
+                                            shortDesc="#{bindings.categoriaList.hints.tooltip}" id="soc3"
+                                            binding="#{transferenciasBean.categoria}">
+                            <f:selectItems value="#{bindings.categoriaList.items}" id="si3"/>
+                        </af:selectOneChoice>
+                        <af:inputDate label="Fecha Límite (préstamos)" id="id2" binding="#{transferenciasBean.limite}"/>
+                        <af:selectOneChoice value="#{bindings.usuarioFindAll.inputValue}"
+                                            label="Usuario de destino"
+                                            required="#{bindings.usuarioFindAll.hints.mandatory}"
+                                            shortDesc="#{bindings.usuarioFindAll.hints.tooltip}" id="soc4"
+                                            binding="#{transferenciasBean.usuario}">
+                            <f:selectItems value="#{bindings.usuarioFindAll.items}" id="si4"/>
+                        </af:selectOneChoice>
+                        <f:facet name="footer">
+                            <af:commandButton text="Generar Transacción" id="cb2"
+                                              action="#{transferenciasBean.transferir}"/>
+                        </f:facet>
+                    </af:panelFormLayout>
+                </af:form>
+            </f:facet>
+        </af:pageTemplate>
     </af:document>
 </f:view>

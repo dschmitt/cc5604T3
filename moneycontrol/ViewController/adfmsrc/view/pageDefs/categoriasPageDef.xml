@@ -8,10 +8,8 @@
     <accessorIterator MasterBinding="SessionEJBLocalIterator" Binds="categoriaFindAll" RangeSize="25"
                       DataControl="SessionEJBLocal" BeanClass="model.Categoria" id="categoriaFindAllIterator"
                       ChangeEventPolicy="ppr"/>
-    <methodIterator Binds="getUsuarioFindByNombre.result" DataControl="SessionEJBLocal" RangeSize="25"
-                    BeanClass="model.Usuario" id="getUsuarioFindByNombreIterator"/>
-    <accessorIterator MasterBinding="getUsuarioFindByNombreIterator" Binds="categoriaList" RangeSize="25"
-                      DataControl="SessionEJBLocal" BeanClass="model.Categoria" id="categoriaListIterator"/>
+    <methodIterator Binds="getCategoriaFindByUsuario.result" DataControl="SessionEJBLocal" RangeSize="25"
+                    BeanClass="model.Categoria" id="getCategoriaFindByUsuarioIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="categoriaFindAllIterator" id="nombre">
@@ -19,14 +17,14 @@
         <Item Value="nombre"/>
       </AttrNames>
     </attributeValues>
-    <methodAction id="getUsuarioFindByNombre" RequiresUpdateModel="true" Action="invokeMethod"
-                  MethodName="getUsuarioFindByNombre" IsViewObjectMethod="false" DataControl="SessionEJBLocal"
+    <methodAction id="getCategoriaFindByUsuario" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="getCategoriaFindByUsuario" IsViewObjectMethod="false" DataControl="SessionEJBLocal"
                   InstanceName="data.SessionEJBLocal.dataProvider"
-                  ReturnName="data.SessionEJBLocal.methodResults.getUsuarioFindByNombre_SessionEJBLocal_dataProvider_getUsuarioFindByNombre_result">
+                  ReturnName="data.SessionEJBLocal.methodResults.getCategoriaFindByUsuario_SessionEJBLocal_dataProvider_getCategoriaFindByUsuario_result">
       <NamedData NDName="nombre" NDValue="#{loginBean.cliente.nombre}" NDType="java.lang.String"/>
     </methodAction>
-    <tree IterBinding="categoriaListIterator" id="categoriaList">
-      <nodeDefinition DefName="model.Categoria" Name="categoriaList0">
+    <tree IterBinding="getCategoriaFindByUsuarioIterator" id="Categoria">
+      <nodeDefinition DefName="model.Categoria" Name="Categoria0">
         <AttrNames>
           <Item Value="nombre"/>
         </AttrNames>
@@ -36,13 +34,13 @@
                   IsViewObjectMethod="false" DataControl="SessionEJBLocal"
                   InstanceName="data.SessionEJBLocal.dataProvider"
                   ReturnName="data.SessionEJBLocal.methodResults.mergeCategoria_SessionEJBLocal_dataProvider_mergeCategoria_result">
-      <NamedData NDName="categoria" NDValue="#{bindings.categoriaListIterator.currentRow.dataProvider}"
+      <NamedData NDName="categoria" NDValue="#{bindings.getCategoriaFindByUsuarioIterator.currentRow.dataProvider}"
                  NDType="model.Categoria"/>
     </methodAction>
     <methodAction id="removeCategoria" RequiresUpdateModel="true" Action="invokeMethod" MethodName="removeCategoria"
                   IsViewObjectMethod="false" DataControl="SessionEJBLocal"
                   InstanceName="data.SessionEJBLocal.dataProvider">
-      <NamedData NDName="categoria" NDValue="#{bindings.categoriaListIterator.currentRow.dataProvider}"
+      <NamedData NDName="categoria" NDValue="#{bindings.getCategoriaFindByUsuarioIterator.currentRow.dataProvider}"
                  NDType="model.Categoria"/>
     </methodAction>
   </bindings>

@@ -4,10 +4,12 @@ import java.io.Serializable;
 
 import java.math.BigDecimal;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -20,7 +22,14 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@NamedQueries( { @NamedQuery(name = "Transaccion.findAll", query = "select o from Transaccion o") })
+@NamedQueries({
+@NamedQuery(name = "Transaccion.findAll", query = "select o from Transaccion o"),
+@NamedQuery(name = "Transaccion.findIngresos", query = "select sum(o.monto) from Transaccion o where o.tipo = 'INGRESO' and o.cuenta.idcuenta = :cuenta and o.fecha < :fecha"),
+@NamedQuery(name = "Transaccion.findGastos", query = "select sum(o.monto) from Transaccion o where o.tipo = 'GASTO' and o.cuenta.idcuenta = :cuenta and o.fecha < :fecha"),
+@NamedQuery(name = "Transaccion.findPrestamos", query = "select sum(o.monto) from Transaccion o where o.tipo = 'PRESTAMO' and o.cuenta.idcuenta = :cuenta and o.fecha < :fecha"),
+@NamedQuery(name = "Transaccion.findByUsuario", query = "select o from Transaccion o where o.cuenta.usuario.nombre = :nombre"),
+@NamedQuery(name = "Transaccion.findBetweenFecha", query = "select o from Transaccion o where o.cuenta.usuario.nombre = :nombre and o.fecha between :antes and :despues")
+})
 public class Transaccion implements Serializable {
     @Temporal(TemporalType.DATE)
     @Column(nullable = false)
@@ -38,8 +47,8 @@ public class Transaccion implements Serializable {
     @ManyToOne
     @JoinColumn(name = "CATEGORIA_IDCATEGORIA")
     private Categoria categoria;
-    @OneToMany(mappedBy = "transaccion")
-    private List<TransaccionInterna> transaccionInternaList;
+    @OneToMany(mappedBy = "transaccion", cascade=CascadeType.ALL)
+    private List<TransaccionInterna> transaccionInternaList = new ArrayList<TransaccionInterna>();
     @OneToMany(mappedBy = "transaccion")
     private List<Prestamo> prestamoList;
 

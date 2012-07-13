@@ -1,7 +1,62 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
-    <af:document title="transacciones.xhtml" id="d1">
-        <af:form id="f1"></af:form>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html">
+    <af:document title="Transacciones" id="d1">
+        <h:outputStylesheet library="css/" name="simpleblue.css" id="os1"/>
+        <af:messages id="m1"/>
+        <af:pageTemplate viewId="/templates/master.jsf" id="pt1">
+            <f:facet name="body">
+                <af:form id="f2">
+                    <af:panelFormLayout id="pfl2">
+                        <af:inputDate label="Fecha de Inicio" id="id1" binding="#{transaccionesBean.antes}"/>
+                        <af:inputDate label="Fecha de Término" id="id2" binding="#{transaccionesBean.despues}"/>
+                        <af:commandButton text="Buscar" id="cb2"/>
+                    </af:panelFormLayout>
+                </af:form>
+                <af:form id="f3">
+                    <af:panelCollection id="pc1">
+                        <f:facet name="menus"/>
+                        <f:facet name="toolbar"/>
+                        <f:facet name="statusbar"/>
+                        <af:table value="#{bindings.Transaccion.collectionModel}" var="row"
+                                  rows="#{bindings.Transaccion.rangeSize}"
+                                  emptyText="#{bindings.Transaccion.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  fetchSize="#{bindings.Transaccion.rangeSize}" rowBandingInterval="0"
+                                  filterModel="#{bindings.TransaccionQuery.queryDescriptor}"
+                                  queryListener="#{bindings.TransaccionQuery.processQuery}" filterVisible="true"
+                                  varStatus="vs" id="t1">
+                            <af:column sortProperty="#{bindings.Transaccion.hints.fecha.name}" filterable="true"
+                                       sortable="true" headerText="Fecha" id="c1">
+                                <f:facet name="filter">
+                                    <af:inputDate value="#{vs.filterCriteria.fecha}" id="id3">
+                                        <af:convertDateTime pattern="#{bindings.Transaccion.hints.fecha.format}"/>
+                                    </af:inputDate>
+                                </f:facet>
+                                <af:outputText value="#{row.fecha}" id="ot1">
+                                    <af:convertDateTime pattern="#{bindings.Transaccion.hints.fecha.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.Transaccion.hints.monto.name}" filterable="true"
+                                       sortable="true" headerText="Monto" id="c2">
+                                <af:outputText value="#{row.monto}" id="ot2"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.Transaccion.hints.tipo.name}" filterable="true"
+                                       sortable="true" headerText="Tipo" id="c3">
+                                <af:outputText value="#{row.tipo}" id="ot3"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.Transaccion.hints.cuenta.nombre.name}" filterable="true"
+                                       sortable="true" headerText="Cuenta" id="c4">
+                                <af:outputText value="#{row.cuenta.bindings.nombre.inputValue}" id="ot4"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.Transaccion.hints.categoria.nombre.name}"
+                                       filterable="true" sortable="true" headerText="Categoría" id="c5">
+                                <af:outputText value="#{row.categoria.bindings.nombre.inputValue}" id="ot5"/>
+                            </af:column>
+                        </af:table>
+                    </af:panelCollection>
+                </af:form>
+            </f:facet>
+        </af:pageTemplate>
     </af:document>
 </f:view>

@@ -32,25 +32,25 @@
                                                          text="Borrar" disabled="#{!bindings.removeCategoria.enabled}"
                                                          id="ctb2"/>
                                 <af:commandToolbarButton text="Actualizar" id="ctb3"
-                                                         actionListener="#{bindings.getUsuarioFindByNombre.execute}"/>
+                                                         actionListener="#{bindings.getCategoriaFindByUsuario.execute}"/>
                             </af:toolbar>
                         </f:facet>
                         <f:facet name="statusbar"/>
-                        <af:table value="#{bindings.categoriaList.collectionModel}" var="row"
-                                  rows="#{bindings.categoriaList.rangeSize}"
-                                  emptyText="#{bindings.categoriaList.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                  fetchSize="#{bindings.categoriaList.rangeSize}" rowBandingInterval="0"
-                                  selectedRowKeys="#{bindings.categoriaList.collectionModel.selectedRow}"
-                                  selectionListener="#{bindings.categoriaList.collectionModel.makeCurrent}"
+                        <af:table value="#{bindings.Categoria.collectionModel}" var="row"
+                                  rows="#{bindings.Categoria.rangeSize}"
+                                  emptyText="#{bindings.Categoria.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  fetchSize="#{bindings.Categoria.rangeSize}" rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.Categoria.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.Categoria.collectionModel.makeCurrent}"
                                   rowSelection="single" id="t1">
-                            <af:column sortProperty="#{bindings.categoriaList.hints.nombre.name}" sortable="true"
-                                       headerText="Nombre" id="c1">
+                            <af:column sortProperty="#{bindings.Categoria.hints.nombre.name}" sortable="true"
+                                       headerText="Categoría" id="c1">
                                 <af:inputText value="#{row.bindings.nombre.inputValue}"
-                                              label="#{bindings.categoriaList.hints.nombre.label}"
-                                              required="#{bindings.categoriaList.hints.nombre.mandatory}"
-                                              columns="#{bindings.categoriaList.hints.nombre.displayWidth}"
-                                              maximumLength="#{bindings.categoriaList.hints.nombre.precision}"
-                                              shortDesc="#{bindings.categoriaList.hints.nombre.tooltip}" id="it3">
+                                              label="#{bindings.Categoria.hints.nombre.label}"
+                                              required="#{bindings.Categoria.hints.nombre.mandatory}"
+                                              columns="#{bindings.Categoria.hints.nombre.displayWidth}"
+                                              maximumLength="#{bindings.Categoria.hints.nombre.precision}"
+                                              shortDesc="#{bindings.Categoria.hints.nombre.tooltip}" id="it3">
                                     <f:validator binding="#{row.bindings.nombre.validator}"/>
                                 </af:inputText>
                             </af:column>

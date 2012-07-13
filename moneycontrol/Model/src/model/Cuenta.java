@@ -4,8 +4,10 @@ import java.io.Serializable;
 
 import java.math.BigDecimal;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -16,7 +18,11 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 @Entity
-@NamedQueries( { @NamedQuery(name = "Cuenta.findAll", query = "select o from Cuenta o") })
+@NamedQueries({
+@NamedQuery(name = "Cuenta.findAll", query = "select o from Cuenta o"),
+@NamedQuery(name = "Cuenta.findByID", query = "select o from Cuenta o where o.idcuenta = :id"),
+@NamedQuery(name = "Cuenta.findByUsuario", query = "select o from Cuenta o where o.usuario.nombre = :nombre")
+})
 public class Cuenta implements Serializable {
     private String comentario;
     @Id
@@ -28,8 +34,8 @@ public class Cuenta implements Serializable {
     private BigDecimal saldo;
     @OneToMany(mappedBy = "cuenta")
     private List<Transaccion> transaccionList;
-    @OneToMany(mappedBy = "cuenta")
-    private List<TransaccionInterna> transaccionInternaList;
+    @OneToMany(mappedBy = "cuenta", cascade=CascadeType.ALL)
+    private List<TransaccionInterna> transaccionInternaList = new ArrayList<TransaccionInterna>();
     @ManyToOne
     @JoinColumn(name = "USUARIO_NOMBRE")
     private Usuario usuario;

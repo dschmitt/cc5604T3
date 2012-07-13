@@ -1,5 +1,8 @@
 package model;
 
+import java.math.BigDecimal;
+
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.Local;
@@ -59,4 +62,22 @@ public interface SessionEJBLocal {
     void removeCuenta(Cuenta cuenta);
 
     List<Cuenta> getCuentaFindAll();
+
+    List<BigDecimal> getTransaccionFindIngresos(BigDecimal cuenta, Date fecha);
+
+    List<BigDecimal> getTransaccionFindGastos(BigDecimal cuenta, Date fecha);
+
+    List<BigDecimal> getTransaccionFindPrestamos(BigDecimal cuenta, Date fecha);
+
+    List<Transaccion> getTransaccionFindBetweenFecha(String nombre, Date antes, Date despues);
+
+    List<Transaccion> getTransaccionFindByUsuario(String nombre);
+
+    List<Categoria> getCategoriaFindByID(BigDecimal id);
+
+    List<Cuenta> getCuentaFindByID(BigDecimal id);
+
+    List<Categoria> getCategoriaFindByUsuario(String nombre);
+
+    List<Cuenta> getCuentaFindByUsuario(String nombre);
 }

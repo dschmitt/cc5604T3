@@ -8,6 +8,8 @@
     <page path="/admin.xhtml" usageId="view_adminPageDef"/>
     <page path="/categorias.xhtml" usageId="view_categoriasPageDef"/>
     <page path="/cuentas.xhtml" usageId="view_cuentasPageDef"/>
+    <page path="/transacciones.xhtml" usageId="view_transaccionesPageDef"/>
+    <page path="/transferencias.xhtml" usageId="view_transferenciasPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="view_loginPageDef" path="view.pageDefs.loginPageDef"/>
@@ -16,6 +18,8 @@
     <page id="view_adminPageDef" path="view.pageDefs.adminPageDef"/>
     <page id="view_categoriasPageDef" path="view.pageDefs.categoriasPageDef"/>
     <page id="view_cuentasPageDef" path="view.pageDefs.cuentasPageDef"/>
+    <page id="view_transaccionesPageDef" path="view.pageDefs.transaccionesPageDef"/>
+    <page id="view_transferenciasPageDef" path="view.pageDefs.transferenciasPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <dc id="SessionEJBLocal" path="model.SessionEJBLocal"/>
