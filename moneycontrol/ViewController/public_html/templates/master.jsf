@@ -17,7 +17,7 @@
                 <img src="../images/logo.gif" alt="Money Control" class="logo"/>
                 <ul id="toplinks">
                     <li>
-                        <h:outputText value="#{dateBean}" id="pt_ot1"/>
+                        <h:outputText value="#{requestScope.dateBean}" id="pt_ot1"/>
                     </li>
                      
                     <li>
